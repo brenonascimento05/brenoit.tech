@@ -1,319 +1,192 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breno Nascimento | Serviços de TI</title>
 
-<title>Breno Nascimento – Serviços de TI</title>
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#0a1a33">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Breno TI">
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f9;
+            color: #333;
+        }
 
-<style>
- буш
-:root {
-    --bg: #0a1a33;
-    --bg-card: #102544;
-    --text: #ffffff;
-    --primary: #1e90ff;
-    --primary-dark: #187bcd;
-}
+        header {
+            background: #0a1a33;
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+        }
 
-* {
-    box-sizing: border-box;
-}
+        header h1 {
+            margin: 0;
+            font-size: 28px;
+        }
 
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-}
+        header p {
+            margin-top: 10px;
+            font-size: 16px;
+            opacity: 0.9;
+        }
 
-/* NAV */
-nav {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: var(--bg-card);
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;
-    overflow-x: hidden;
-    box-shadow: 0 2px 10px rgba(0,0,0,.5);
-}
+        section {
+            padding: 40px 20px;
+            max-width: 1100px;
+            margin: auto;
+        }
 
-.logo {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--primary);
-}
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #0a1a33;
+        }
 
-/* MENU LINKS */
-.nav-links {
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 15px;
-    margin: 0;
-    padding: 0;
-}
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
 
-.nav-links a {
-    color: var(--text);
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    padding: 6px 10px;
-    border-radius: 5px;
-    transition: .3s;
-}
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+            transition: transform 0.2s ease;
+        }
 
-.nav-links a:hover {
-    background: rgba(30,144,255,.15);
-    color: var(--primary);
-}
+        .card:hover {
+            transform: translateY(-5px);
+        }
 
-/* BOTÃO WHATSAPP NO MENU */
-.btn-whatsapp a {
-    background: #25d366;
-    color: #fff !important;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    white-space: nowrap;
-}
+        .card h3 {
+            margin-top: 0;
+            color: #0a1a33;
+        }
 
-.btn-whatsapp a:hover {
-    background: #1ebe5d;
-}
+        .card p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
 
-/* HAMBURGER */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-}
+        .cta {
+            background: #0a1a33;
+            color: #fff;
+            text-align: center;
+            padding: 40px 20px;
+        }
 
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: var(--text);
-    margin: 4px 0;
-    transition: .3s;
-}
+        .cta a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 12px 25px;
+            background: #1abc9c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
 
-/* MOBILE */
-@media (max-width: 900px) {
-
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        height: 100vh;
-        width: 260px;
-        background: var(--bg-card);
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 90px 30px;
-        gap: 20px;
-        transition: .4s;
-        box-shadow: -5px 0 15px rgba(0,0,0,.3);
-    }
-
-    .nav-links.active {
-        right: 0;
-    }
-
-    /* REMOVE WHATSAPP DO MENU NO MOBILE */
-    .btn-whatsapp {
-        display: none;
-    }
-}
-
-/* HERO */
-header {
-    padding: 120px 20px 60px;
-    text-align: center;
-}
-
-.hero-bg {
-    max-width: 1200px;
-    margin: auto;
-    padding: 100px 20px;
-    border-radius: 15px;
-    background:
-        linear-gradient(rgba(10,26,51,.9), rgba(10,26,51,.9)),
-        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1472&q=80');
-    background-size: cover;
-}
-
-.hero-bg h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.8rem;
-    border-left: 4px solid var(--primary);
-    padding-left: 15px;
-}
-
-.hero-bg p {
-    max-width: 700px;
-    margin: auto;
-    font-size: 1.2rem;
-}
-
-/* MAIN */
-main {
-    max-width: 1000px;
-    margin: 40px auto;
-    background: var(--bg-card);
-    padding: 40px;
-    border-radius: 12px;
-}
-
-.servicos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(260px,1fr));
-    gap: 25px;
-}
-
-.card {
-    background: #1c2128;
-    padding: 25px;
-    border-radius: 12px;
-    text-align: center;
-    cursor: pointer;
-    transition: .3s;
-}
-
-.card:hover {
-    transform: translateY(-6px);
-    border: 1px solid var(--primary);
-}
-
-.card.selecionado {
-    border: 2px solid #25d366;
-}
-
-/* FORM */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-input, textarea {
-    padding: 14px;
-    border-radius: 8px;
-    border: 1px solid #2a3a5a;
-    background: #1c2128;
-    color: var(--text);
-    font-family: 'Poppins';
-}
-
-button {
-    background: var(--primary);
-    color: white;
-    border: none;
-    padding: 15px;
-    border-radius: 8px;
-    font-size: 1.1rem;
-    cursor: pointer;
-}
-
-button:hover {
-    background: var(--primary-dark);
-}
-
-/* WHATSAPP FLUTUANTE */
-.whatsapp-btn {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    background: #25d366;
-    color: white;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(37,211,102,.4);
-}
-</style>
+        footer {
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+            background: #e9ecf1;
+        }
+    </style>
 </head>
-
 <body>
 
-<nav>
-    <h2 class="logo">Breno Nascimento</h2>
-
-    <div class="hamburger" id="hamburger">
-        <span></span><span></span><span></span>
-    </div>
-
-    <ul class="nav-links" id="navLinks">
-        <li><a href="#inicio">Início</a></li>
-        <li><a href="#servicos">Serviços</a></li>
-        <li><a href="#contato">Contato</a></li>
-        <li class="btn-whatsapp">
-            <a href="https://wa.me/5584994291197" target="_blank">
-                <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-        </li>
-    </ul>
-</nav>
-
-<header id="inicio">
-    <div class="hero-bg">
-        <h1>Breno Nascimento</h1>
-        <p>Soluções completas em TI com atendimento personalizado.</p>
-    </div>
+<header>
+    <h1>Breno Nascimento</h1>
+    <p>Suporte Técnico, Manutenção e Consultoria em Tecnologia da Informação</p>
 </header>
 
-<main id="servicos">
-    <h2>Serviços de TI</h2>
+<section>
+    <h2>Serviços</h2>
 
-    <div class="servicos">
-        <div class="card">Formatação</div>
-        <div class="card">Montagem</div>
-        <div class="card">Reparos</div>
+    <div class="cards">
+
+        <div class="card">
+            <h3>💻 Suporte Técnico</h3>
+            <p>
+                Atendimento remoto e presencial para resolução de problemas em
+                computadores, notebooks e sistemas operacionais, garantindo
+                agilidade e eficiência.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🧹 Formatação e Otimização</h3>
+            <p>
+                Formatação completa, remoção de vírus, instalação de softwares
+                essenciais e otimização para melhor desempenho do equipamento.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🖨️ Impressoras</h3>
+            <p>
+                Instalação, configuração e suporte para impressoras locais e em rede,
+                correção de falhas, compartilhamento e ajustes de drivers.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>☁️ Backups</h3>
+            <p>
+                Planejamento e implementação de rotinas de backup local e em nuvem,
+                garantindo segurança e recuperação de dados em caso de falhas.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🧠 Consultoria de TI</h3>
+            <p>
+                Análise de ambiente, orientação técnica, melhorias de infraestrutura,
+                segurança da informação e suporte estratégico para empresas e usuários.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3>🔧 Montagem e Upgrade</h3>
+            <p>
+                Montagem de computadores, troca de peças, upgrades de memória,
+                armazenamento (SSD) e melhorias de performance.
+            </p>
+        </div>
+
     </div>
+</section>
 
-    <h2 id="contato" style="margin-top:40px">Solicitar Atendimento</h2>
+<section class="cta">
+    <h2>Precisa de ajuda em TI?</h2>
+    <p>Atendimento remoto ou presencial, conforme a necessidade.</p>
+    <a href="https://wa.me/5599999999999" target="_blank">Falar no WhatsApp</a>
+</section>
 
-    <form>
-        <input type="text" placeholder="Seu nome" required>
-        <input type="tel" placeholder="Seu WhatsApp" required>
-        <textarea placeholder="Descreva o serviço" required></textarea>
-        <button type="submit"><i class="fab fa-whatsapp"></i> Enviar</button>
-    </form>
-</main>
-
-<a href="https://wa.me/5584994291197" target="_blank" class="whatsapp-btn">
-    <i class="fab fa-whatsapp"></i>
-</a>
+<footer>
+    © 2026 – Breno Nascimento • Serviços de Tecnologia da Informação
+</footer>
 
 <script>
-const hamburger = document.getElementById('hamburger');
-const navLinks = document.getElementById('navLinks');
-
-hamburger.onclick = () => {
-    navLinks.classList.toggle('active');
-};
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js')
+        .then(() => console.log('Service Worker registrado com sucesso'))
+        .catch(err => console.log('Erro ao registrar o SW:', err));
+    });
+}
 </script>
 
 </body>
