@@ -4,18 +4,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Breno Nascimento | Serviços de TI em Natal/RN</title>
-
-<meta name="description" content="Serviços de TI em Natal/RN. Formatação, montagem de PCs, reparos, instalação de software, redes e suporte técnico personalizado.">
-<meta name="keywords" content="TI, informática, formatação, montagem de PC, suporte técnico, Natal RN">
+<title>Breno Nascimento – Serviços de TI</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
+ буш
 :root {
     --bg: #0a1a33;
     --bg-card: #102544;
@@ -38,14 +35,16 @@ body {
 /* NAV */
 nav {
     position: fixed;
-    width: 100%;
     top: 0;
+    width: 100%;
     background: var(--bg-card);
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     z-index: 1000;
+    overflow-x: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,.5);
 }
 
 .logo {
@@ -55,6 +54,49 @@ nav {
     color: var(--primary);
 }
 
+/* MENU LINKS */
+.nav-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+.nav-links a:hover {
+    background: rgba(30,144,255,.15);
+    color: var(--primary);
+}
+
+/* BOTÃO WHATSAPP NO MENU */
+.btn-whatsapp a {
+    background: #25d366;
+    color: #fff !important;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+}
+
+.btn-whatsapp a:hover {
+    background: #1ebe5d;
+}
+
+/* HAMBURGER */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -64,69 +106,62 @@ nav {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: white;
+    background: var(--text);
     margin: 4px 0;
     transition: .3s;
 }
 
-/* MENU */
-.nav-links {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-}
-
-.nav-links a:hover {
-    background: rgba(30,144,255,.15);
-    color: var(--primary);
-}
-
 /* MOBILE */
-@media (max-width:768px){
-    .hamburger { display:flex; }
+@media (max-width: 900px) {
+
+    .hamburger {
+        display: flex;
+    }
 
     .nav-links {
         position: fixed;
-        right: -100%;
         top: 0;
+        right: -100%;
         height: 100vh;
-        width: 250px;
+        width: 260px;
         background: var(--bg-card);
         flex-direction: column;
+        align-items: flex-start;
         padding: 90px 30px;
+        gap: 20px;
         transition: .4s;
+        box-shadow: -5px 0 15px rgba(0,0,0,.3);
     }
 
     .nav-links.active {
         right: 0;
     }
+
+    /* REMOVE WHATSAPP DO MENU NO MOBILE */
+    .btn-whatsapp {
+        display: none;
+    }
 }
 
 /* HERO */
 header {
-    padding-top: 120px;
+    padding: 120px 20px 60px;
+    text-align: center;
 }
 
 .hero-bg {
     max-width: 1200px;
     margin: auto;
-    padding: 90px 20px;
+    padding: 100px 20px;
     border-radius: 15px;
     background:
         linear-gradient(rgba(10,26,51,.9), rgba(10,26,51,.9)),
-        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80');
+        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1472&q=80');
     background-size: cover;
 }
 
 .hero-bg h1 {
-    font-family: 'Montserrat';
+    font-family: 'Montserrat', sans-serif;
     font-size: 2.8rem;
     border-left: 4px solid var(--primary);
     padding-left: 15px;
@@ -134,13 +169,14 @@ header {
 
 .hero-bg p {
     max-width: 700px;
+    margin: auto;
     font-size: 1.2rem;
 }
 
 /* MAIN */
 main {
     max-width: 1000px;
-    margin: 50px auto;
+    margin: 40px auto;
     background: var(--bg-card);
     padding: 40px;
     border-radius: 12px;
@@ -171,21 +207,28 @@ main {
 }
 
 /* FORM */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
 input, textarea {
-    width: 100%;
     padding: 14px;
     border-radius: 8px;
     border: 1px solid #2a3a5a;
     background: #1c2128;
-    color: white;
+    color: var(--text);
+    font-family: 'Poppins';
 }
 
 button {
     background: var(--primary);
-    padding: 15px;
+    color: white;
     border: none;
+    padding: 15px;
     border-radius: 8px;
-    font-weight: 600;
+    font-size: 1.1rem;
     cursor: pointer;
 }
 
@@ -193,20 +236,22 @@ button:hover {
     background: var(--primary-dark);
 }
 
-/* WHATSAPP */
+/* WHATSAPP FLUTUANTE */
 .whatsapp-btn {
     position: fixed;
     bottom: 25px;
     right: 25px;
-    width: 60px;
-    height: 60px;
     background: #25d366;
     color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 50%;
-    font-size: 26px;
+    font-size: 28px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(37,211,102,.4);
 }
 </style>
 </head>
@@ -214,44 +259,51 @@ button:hover {
 <body>
 
 <nav>
-    <div class="logo">Breno Nascimento</div>
-    <div class="hamburger" id="hamburger" aria-label="Abrir menu">
+    <h2 class="logo">Breno Nascimento</h2>
+
+    <div class="hamburger" id="hamburger">
         <span></span><span></span><span></span>
     </div>
+
     <ul class="nav-links" id="navLinks">
         <li><a href="#inicio">Início</a></li>
         <li><a href="#servicos">Serviços</a></li>
         <li><a href="#contato">Contato</a></li>
+        <li class="btn-whatsapp">
+            <a href="https://wa.me/5584994291197" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </li>
     </ul>
 </nav>
 
 <header id="inicio">
     <div class="hero-bg">
-        <h1>Serviços de TI</h1>
-        <p>Formatação, montagem de PCs, reparos, redes e suporte técnico personalizado em Natal/RN.</p>
+        <h1>Breno Nascimento</h1>
+        <p>Soluções completas em TI com atendimento personalizado.</p>
     </div>
 </header>
 
 <main id="servicos">
-    <h2>Serviços</h2>
+    <h2>Serviços de TI</h2>
 
     <div class="servicos">
-        <div class="card" data-servico="formatacao"><i class="fas fa-desktop"></i><h3>Formatação</h3></div>
-        <div class="card" data-servico="montagem"><i class="fas fa-toolbox"></i><h3>Montagem</h3></div>
-        <div class="card" data-servico="reparos"><i class="fas fa-laptop-medical"></i><h3>Reparos</h3></div>
+        <div class="card">Formatação</div>
+        <div class="card">Montagem</div>
+        <div class="card">Reparos</div>
     </div>
 
-    <h2 id="contato">Solicitar Atendimento</h2>
+    <h2 id="contato" style="margin-top:40px">Solicitar Atendimento</h2>
 
-    <form id="formAtendimento">
-        <input type="text" id="nome" placeholder="Nome" required>
-        <input type="tel" id="telefone" placeholder="WhatsApp com DDD" required>
-        <textarea id="descricao" placeholder="Descreva o serviço" required></textarea>
+    <form>
+        <input type="text" placeholder="Seu nome" required>
+        <input type="tel" placeholder="Seu WhatsApp" required>
+        <textarea placeholder="Descreva o serviço" required></textarea>
         <button type="submit"><i class="fab fa-whatsapp"></i> Enviar</button>
     </form>
 </main>
 
-<a class="whatsapp-btn" href="https://wa.me/5584994291197" target="_blank">
+<a href="https://wa.me/5584994291197" target="_blank" class="whatsapp-btn">
     <i class="fab fa-whatsapp"></i>
 </a>
 
