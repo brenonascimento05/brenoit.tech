@@ -2,204 +2,886 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Solicitar Atendimento</title>
+  <title>Breno Nascimento - CONSULTORIA</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7fa;
+    :root {
+      --primary-color: #2563eb;
+      --primary-dark: #1d4ed8;
+      --secondary-color: #0f172a;
+      --accent-color: #06b6d4;
+      --light-bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --success-color: #10b981;
+      --border-color: #e2e8f0;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
+      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
-    h2 {
-      text-align: center;
-      margin-bottom: 30px;
-      color: #0b2a4a;
-    }
-
-    /* ====== SERVIÇOS ====== */
-    .servicos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-      padding: 40px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-      cursor: pointer;
-      transition: all .3s ease;
-      border: 2px solid transparent;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      border-color: #2ecc71;
-    }
-
-    .card h3 {
-      margin-top: 0;
-      color: #0b2a4a;
-    }
-
-    .card p {
-      font-size: 14px;
-      color: #555;
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--light-bg);
+      color: var(--text-primary);
       line-height: 1.6;
     }
 
-    /* ====== FORMULÁRIO ====== */
-    .form-section {
-      background: #fff;
+    /* ===== HEADER ===== */
+    header {
+      background: linear-gradient(135deg, var(--secondary-color), #1e3a8a);
+      color: white;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo-container i {
+      font-size: 1.8rem;
+      color: var(--accent-color);
+    }
+
+    .logo-text {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text span {
+      color: var(--accent-color);
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: block;
+      margin-top: 2px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+    }
+
+    nav a:hover, nav a.active {
+      color: white;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .whatsapp-nav {
+      background-color: #25D366;
+      color: white !important;
+      padding: 0.5rem 1.2rem !important;
+    }
+
+    .whatsapp-nav:hover {
+      background-color: #128C7E;
+    }
+
+    /* ===== HERO SECTION ===== */
+    .hero {
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+      margin-bottom: 2rem;
       max-width: 600px;
-      margin: 60px auto;
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: white;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* ===== MAIN CONTAINER ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-title h2 {
+      font-size: 2rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background-color: var(--accent-color);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 1rem auto 0;
+    }
+
+    /* ===== SERVIÇOS ===== */
+    .servicos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 2rem;
+      box-shadow: var(--shadow-md);
+      cursor: pointer;
+      transition: var(--transition);
+      border: 1px solid var(--border-color);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary-color);
+    }
+
+    .card-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-icon i {
+      font-size: 1.8rem;
+      color: white;
+    }
+
+    .card h3 {
+      font-size: 1.3rem;
+      color: var(--secondary-color);
+      margin-bottom: 0.8rem;
+    }
+
+    .card p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .card-badge {
+      background-color: var(--light-bg);
+      color: var(--primary-color);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    .card-arrow {
+      color: var(--primary-color);
+      font-size: 1.2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-arrow {
+      transform: translateX(5px);
+    }
+
+    /* ===== FORM SECTION ===== */
+    .form-section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 3rem;
+      box-shadow: var(--shadow-md);
+      margin-bottom: 4rem;
+      border: 1px solid var(--border-color);
+    }
+
+    .form-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .form-header h2 {
+      color: var(--secondary-color);
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .form-header p {
+      color: var(--text-secondary);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
     }
 
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      color: var(--text-primary);
     }
 
     input, select, textarea {
       width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid #dcdcdc;
-      font-size: 15px;
+      padding: 0.9rem 1rem;
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      background-color: white;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
     }
 
     textarea {
-      resize: none;
-      height: 120px;
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .form-group.full-width {
+      grid-column: 1 / -1;
     }
 
     button {
-      width: 100%;
-      background: #2ecc71;
-      color: #fff;
+      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      color: white;
       border: none;
-      padding: 16px;
-      border-radius: 30px;
-      font-size: 16px;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
-      font-weight: bold;
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      width: 100%;
     }
 
     button:hover {
-      background: #27ae60;
+      background: linear-gradient(135deg, var(--primary-dark), #1e40af);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
     }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 3rem 2rem 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-section h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      color: white;
+    }
+
+    .footer-section p {
+      color: #cbd5e1;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .contact-info {
+      list-style: none;
+    }
+
+    .contact-info li {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      color: #cbd5e1;
+    }
+
+    .contact-info i {
+      color: var(--accent-color);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .social-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: #334155;
+      border-radius: 50%;
+      color: white;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .social-links a:hover {
+      background-color: var(--primary-color);
+      transform: translateY(-3px);
+    }
+
+    .copyright {
+      text-align: center;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid #334155;
+      color: #94a3b8;
+      font-size: 0.9rem;
+    }
+
+    /* ===== WHATSAPP FLOATING BUTTON ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25D366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+      z-index: 1000;
+      transition: var(--transition);
+      text-decoration: none;
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+      transform: scale(1.1);
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+      }
+      
+      nav ul {
+        gap: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      .hero {
+        padding: 3rem 1rem;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .hero-stats {
+        gap: 3rem;
+      }
+      
+      .stat-number {
+        font-size: 2rem;
+      }
+      
+      .form-section {
+        padding: 2rem 1.5rem;
+      }
+      
+      .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+
+    /* ===== UTILITY CLASSES ===== */
+    .text-center {
+      text-align: center;
+    }
+    
+    .mt-1 { margin-top: 1rem; }
+    .mt-2 { margin-top: 2rem; }
+    .mt-3 { margin-top: 3rem; }
+    .mb-1 { margin-bottom: 1rem; }
+    .mb-2 { margin-bottom: 2rem; }
+    .mb-3 { margin-bottom: 3rem; }
   </style>
 </head>
 
 <body>
-
-  <h2>Serviços</h2>
-
-  <section class="servicos">
-    <div class="card" onclick="preencherServico('Suporte Técnico')">
-      <h3>Suporte Técnico</h3>
-      <p>
-        Atendimento remoto, formatação, pacote Office, remoção de vírus
-        e suporte para computadores e sistemas.
-      </p>
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <i class="fas fa-user-tie"></i>
+      <div class="logo-text">Breno Nascimento<br><span>CONSULTORIA</span></div>
     </div>
+    
+    <nav>
+      <ul>
+        <li><a href="#" class="active"><i class="fas fa-home"></i> Início</a></li>
+        <li><a href="#servicos"><i class="fas fa-cogs"></i> Serviços</a></li>
+        <li><a href="#solicitar"><i class="fas fa-headset"></i> Solicitar</a></li>
+        <li><a href="https://wa.me/5584994291197" target="_blank" class="whatsapp-nav">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <div class="card" onclick="preencherServico('Impressoras')">
-      <h3>Impressoras</h3>
-      <p>
-        Instalação, configuração, compartilhamento em rede
-        e correção de falhas.
-      </p>
-    </div>
-
-    <div class="card" onclick="preencherServico('Backups')">
-      <h3>Backups</h3>
-      <p>
-        Backup local e em nuvem, proteção e recuperação
-        de dados críticos.
-      </p>
-    </div>
-
-    <div class="card" onclick="preencherServico('Consultoria de TI')">
-      <h3>Consultoria de TI</h3>
-      <p>
-        Análise de ambiente, segurança da informação
-        e melhorias de infraestrutura.
-      </p>
-    </div>
-
-    <div class="card" onclick="preencherServico('Montagem e Upgrade')">
-      <h3>Montagem e Upgrade</h3>
-      <p>
-        Montagem de computadores, upgrades de SSD,
-        memória e performance.
-      </p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Consultoria Especializada em TI</h1>
+      <p>Soluções personalizadas em tecnologia para sua empresa, com expertise técnica e abordagem consultiva focada em resultados.</p>
+      
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">100+</span>
+          <span class="stat-label">Clientes Atendidos</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-number">24/7</span>
+          <span class="stat-label">Suporte Disponível</span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section class="form-section">
-    <h2>Solicitar Atendimento</h2>
-
-    <form>
-      <div class="form-group">
-        <input type="text" name="nome" placeholder="Nome" required>
+  <div class="container">
+    <!-- Serviços -->
+    <div id="servicos">
+      <div class="section-title">
+        <h2>Serviços de Consultoria</h2>
+        <p>Soluções especializadas para otimizar a infraestrutura e processos de TI da sua empresa</p>
       </div>
 
-      <div class="form-group">
-        <input 
-          type="tel" 
-          name="telefone" 
-          id="telefone"
-          placeholder="Telefone / WhatsApp"
-          required
-        >
+      <div class="servicos">
+        <div class="card" onclick="preencherServico('Suporte Técnico')">
+          <div class="card-icon">
+            <i class="fas fa-tools"></i>
+          </div>
+          <h3>Suporte Técnico</h3>
+          <p>Atendimento remoto, formatação, pacote Office, remoção de vírus e suporte para computadores e sistemas.</p>
+          <div class="card-footer">
+            <span class="card-badge">Prioridade Alta</span>
+            <i class="fas fa-arrow-right card-arrow"></i>
+          </div>
+        </div>
+
+        <div class="card" onclick="preencherServico('Impressoras')">
+          <div class="card-icon">
+            <i class="fas fa-print"></i>
+          </div>
+          <h3>Impressoras</h3>
+          <p>Instalação, configuração, compartilhamento em rede e correção de falhas.</p>
+          <div class="card-footer">
+            <span class="card-badge">Suporte Local</span>
+            <i class="fas fa-arrow-right card-arrow"></i>
+          </div>
+        </div>
+
+        <div class="card" onclick="preencherServico('Backups')">
+          <div class="card-icon">
+            <i class="fas fa-database"></i>
+          </div>
+          <h3>Backups</h3>
+          <p>Backup local e em nuvem, proteção e recuperação de dados críticos.</p>
+          <div class="card-footer">
+            <span class="card-badge">Segurança</span>
+            <i class="fas fa-arrow-right card-arrow"></i>
+          </div>
+        </div>
+
+        <div class="card" onclick="preencherServico('Consultoria de TI')">
+          <div class="card-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h3>Consultoria de TI</h3>
+          <p>Análise de ambiente, segurança da informação e melhorias de infraestrutura.</p>
+          <div class="card-footer">
+            <span class="card-badge">Estratégico</span>
+            <i class="fas fa-arrow-right card-arrow"></i>
+          </div>
+        </div>
+
+        <div class="card" onclick="preencherServico('Montagem e Upgrade')">
+          <div class="card-icon">
+            <i class="fas fa-desktop"></i>
+          </div>
+          <h3>Montagem e Upgrade</h3>
+          <p>Montagem de computadores, upgrades de SSD, memória e performance.</p>
+          <div class="card-footer">
+            <span class="card-badge">Hardware</span>
+            <i class="fas fa-arrow-right card-arrow"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Formulário -->
+    <div id="solicitar">
+      <div class="section-title">
+        <h2>Solicitar Consultoria</h2>
+        <p>Preencha o formulário abaixo e entrarei em contato para uma avaliação personalizada</p>
       </div>
 
-      <div class="form-group">
-        <select name="servico" id="servico" required>
-          <option value="">Selecione o serviço</option>
-          <option>Suporte Técnico</option>
-          <option>Impressoras</option>
-          <option>Backups</option>
-          <option>Consultoria de TI</option>
-          <option>Montagem e Upgrade</option>
-        </select>
-      </div>
+      <div class="form-section">
+        <form id="atendimentoForm">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nome"><i class="fas fa-user"></i> Nome Completo</label>
+              <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+            </div>
 
-      <div class="form-group">
-        <textarea name="mensagem" id="mensagem" placeholder="Descreva sua necessidade"></textarea>
-      </div>
+            <div class="form-group">
+              <label for="telefone"><i class="fas fa-phone"></i> Telefone / WhatsApp</label>
+              <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000" required>
+            </div>
 
-      <button type="submit">Enviar Solicitação</button>
-    </form>
-  </section>
+            <div class="form-group">
+              <label for="email"><i class="fas fa-envelope"></i> E-mail</label>
+              <input type="email" id="email" name="email" placeholder="seu.email@empresa.com" required>
+            </div>
+
+            <div class="form-group">
+              <label for="empresa"><i class="fas fa-building"></i> Empresa (opcional)</label>
+              <input type="text" id="empresa" name="empresa" placeholder="Nome da sua empresa">
+            </div>
+
+            <div class="form-group">
+              <label for="servico"><i class="fas fa-cogs"></i> Tipo de Serviço</label>
+              <select id="servico" name="servico" required>
+                <option value="">Selecione o serviço</option>
+                <option>Suporte Técnico</option>
+                <option>Impressoras</option>
+                <option>Backups</option>
+                <option>Consultoria de TI</option>
+                <option>Montagem e Upgrade</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="urgencia"><i class="fas fa-exclamation-circle"></i> Nível de Urgência</label>
+              <select id="urgencia" name="urgencia">
+                <option value="baixa">Baixa - Pode aguardar</option>
+                <option value="media" selected>Média - Próximos dias</option>
+                <option value="alta">Alta - Necessário hoje</option>
+                <option value="critica">Crítica - Sistema parado</option>
+              </select>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="mensagem"><i class="fas fa-comment-alt"></i> Descrição Detalhada</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Descreva sua necessidade com detalhes"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group mt-3">
+            <button type="submit">
+              <i class="fas fa-paper-plane"></i> Solicitar Consultoria
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Breno Nascimento</h3>
+        <p>CONSULTORIA em Tecnologia da Informação. Soluções personalizadas para otimizar a infraestrutura e processos de TI da sua empresa.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://wa.me/5584994291197" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Contato</h3>
+        <ul class="contact-info">
+          <li><i class="fab fa-whatsapp"></i> (84) 99429-1197</li>
+          <li><i class="fas fa-envelope"></i> contato@brenonascimento.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
+          <li><i class="fas fa-clock"></i> Seg-Sex: 8h às 18h | Sáb: 9h às 13h</li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Links Rápidos</h3>
+        <ul class="contact-info">
+          <li><i class="fas fa-chevron-right"></i> <a href="#servicos" style="color:#cbd5e1; text-decoration:none;">Nossos Serviços</a></li>
+          <li><i class="fas fa-chevron-right"></i> <a href="#solicitar" style="color:#cbd5e1; text-decoration:none;">Solicitar Consultoria</a></li>
+          <li><i class="fas fa-chevron-right"></i> <a href="#" style="color:#cbd5e1; text-decoration:none;">Sobre</a></li>
+          <li><i class="fas fa-chevron-right"></i> <a href="#" style="color:#cbd5e1; text-decoration:none;">Política de Privacidade</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2023 Breno Nascimento - CONSULTORIA. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/5584994291197" target="_blank" class="whatsapp-float">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <script>
     function preencherServico(servico) {
-      document.getElementById('servico').value = servico;
-      document.getElementById('mensagem').value =
-        'Olá, gostaria de atendimento para ' + servico + '.';
-      document.querySelector('.form-section').scrollIntoView({ behavior: 'smooth' });
+      const selectServico = document.getElementById('servico');
+      const mensagem = document.getElementById('mensagem');
+
+      selectServico.value = servico;
+
+      switch (servico) {
+        case 'Montagem e Upgrade':
+          mensagem.value = `Montagem e Upgrade:
+Finalidade do PC:
+Peças atuais:
+Upgrade desejado:
+Orçamento estimado:`;
+          break;
+
+        case 'Suporte Técnico':
+          mensagem.value = `Suporte Técnico:
+Qual o problema apresentado?
+O equipamento liga?
+Sistema operacional utilizado:
+Mensagem de erro (se houver):`;
+          break;
+
+        case 'Impressoras':
+          mensagem.value = `Impressoras:
+Modelo da impressora:
+Problema apresentado:
+Está em rede ou USB?
+Mensagem de erro (se houver):`;
+          break;
+
+        case 'Backups':
+          mensagem.value = `Backups:
+Tipo de backup (local ou nuvem):
+Quantidade aproximada de dados:
+Frequência desejada:
+Necessita recuperação de dados?`;
+          break;
+
+        case 'Consultoria de TI':
+          mensagem.value = `Consultoria de TI:
+Tipo de ambiente (empresa ou residencial):
+Quantidade de usuários:
+Objetivo da consultoria:
+Principais dificuldades atuais:`;
+          break;
+
+        default:
+          mensagem.value = '';
+      }
+
+      // Rolar para o formulário
+      document.getElementById('solicitar').scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+      
+      // Destacar o campo de mensagem
+      mensagem.focus();
     }
 
     // ===== MÁSCARA TELEFONE =====
     const tel = document.getElementById('telefone');
     tel.addEventListener('input', function () {
       let v = tel.value.replace(/\D/g, '');
-      v = v.replace(/^(\d{2})(\d)/g, '($1) $2');
-      v = v.replace(/(\d{5})(\d)/, '$1-$2');
+      if (v.length > 11) v = v.substring(0, 11);
+      
+      if (v.length > 10) {
+        v = v.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+      } else if (v.length > 6) {
+        v = v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+      } else if (v.length > 2) {
+        v = v.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+      } else if (v.length > 0) {
+        v = v.replace(/^(\d*)/, '($1');
+      }
       tel.value = v;
     });
-  </script>
 
+    // ===== SUBMISSÃO DO FORMULÁRIO =====
+    document.getElementById('atendimentoForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      // Validação básica
+      const nome = document.getElementById('nome').value;
+      const servico = document.getElementById('servico').value;
+      
+      if (!nome || !servico) {
+        alert('Por favor, preencha os campos obrigatórios.');
+        return;
+      }
+      
+      // Simulação de envio
+      alert('Solicitação enviada com sucesso! Entrarei em contato em breve para discutir sua necessidade.');
+      
+      // Reset do formulário (opcional)
+      // this.reset();
+    });
+
+    // ===== NAVEGAÇÃO SUAVE =====
+    document.querySelectorAll('nav a').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        
+        if (href.startsWith('#')) {
+          e.preventDefault();
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
+            targetElement.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
