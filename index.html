@@ -2,146 +2,240 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Breno Nascimento - CONSULTORIA</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breno Nascimento - Consultoria TI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="description" content="Consultoria em TI - Suporte técnico para empresas e pessoas físicas">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
   <style>
-    :root {
-      --primary-color: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary-color: #0f172a;
-      --accent-color: #06b6d4;
-      --light-bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text-primary: #1e293b;
-      --text-secondary: #64748b;
-      --success-color: #10b981;
-      --border-color: #e2e8f0;
-      --shadow-sm: 0 1px 3px rgba(0,0,0,0.12);
-      --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-      --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
-      --radius: 12px;
-      --transition: all 0.3s ease;
-    }
-
+    /* RESET E VARIÁVEIS - NOVA PALETA DE CORES */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--light-bg);
-      color: var(--text-primary);
-      line-height: 1.6;
+    :root {
+      /* Cores principais - Azul mais sofisticado */
+      --primary: #0A2647;        /* Azul escuro - principal */
+      --primary-dark: #05182F;    /* Azul mais escuro */
+      --primary-light: #1B3A5C;   /* Azul médio */
+      --primary-soft: #2C4A6E;    /* Azul suave */
+      
+      /* Cores de destaque */
+      --accent: #E6B17E;          /* Dourado suave - para destaques */
+      --accent-light: #F0C8A0;    /* Dourado claro */
+      --accent-dark: #C98F5A;      /* Dourado escuro */
+      
+      /* Tons de cinza */
+      --secondary: #1E293B;       /* Azul muito escuro */
+      --light: #F8FAFC;           /* Fundo claro */
+      --light-gray: #F1F5F9;      /* Cinza muito claro */
+      --white: #FFFFFF;
+      
+      /* Textos */
+      --text: #0F172A;            /* Texto principal - quase preto */
+      --text-light: #475569;      /* Texto secundário */
+      --text-lighter: #64748B;    /* Texto terciário */
+      
+      /* Cores de feedback */
+      --success: #059669;          /* Verde mais sofisticado */
+      --warning: #D97706;          /* Laranja */
+      --error: #DC2626;            /* Vermelho */
+      
+      /* Bordas e sombras */
+      --border: #E2E8F0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+      
+      /* Bordas */
+      --radius-sm: 8px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --transition: all 0.2s ease;
     }
 
-    /* ===== HEADER ===== */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--light);
+      color: var(--text);
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* UTILITÁRIOS */
+    .container {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .container { padding: 0 1.5rem; }
+    }
+
+    @media (min-width: 1024px) {
+      .container { padding: 0 2rem; }
+    }
+
+    /* HEADER MODERNO */
     header {
-      background: linear-gradient(135deg, var(--secondary-color), #1e3a8a);
-      color: white;
-      padding: 1.5rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: var(--shadow-md);
+      background: var(--primary);
       position: sticky;
       top: 0;
       z-index: 100;
+      box-shadow: var(--shadow);
     }
 
-    .logo-container {
+    .header-container {
       display: flex;
       align-items: center;
-      gap: 12px;
+      justify-content: space-between;
+      height: 70px;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 1rem;
     }
 
-    .logo-container i {
-      font-size: 1.8rem;
-      color: var(--accent-color);
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--accent);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon i {
+      font-size: 1.5rem;
+      color: var(--primary);
     }
 
     .logo-text {
-      font-size: 1.3rem;
-      font-weight: 700;
-      letter-spacing: -0.5px;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: white;
+      line-height: 1.3;
     }
 
     .logo-text span {
-      color: var(--accent-color);
-      font-size: 0.9rem;
-      font-weight: 600;
       display: block;
-      margin-top: 2px;
+      font-size: 0.7rem;
+      font-weight: 500;
+      color: var(--accent-light);
+      letter-spacing: 1px;
+    }
+
+    /* MENU MOBILE */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.5rem;
+      width: auto;
     }
 
     nav ul {
       display: flex;
       list-style: none;
-      gap: 2rem;
+      gap: 0.5rem;
     }
 
     nav a {
-      color: #e2e8f0;
+      color: rgba(255, 255, 255, 0.7);
       text-decoration: none;
       font-weight: 500;
-      transition: var(--transition);
+      font-size: 0.95rem;
       padding: 0.5rem 1rem;
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+      white-space: nowrap;
     }
 
-    nav a:hover, nav a.active {
+    nav a:hover,
+    nav a.active {
       color: white;
-      background-color: rgba(255, 255, 255, 0.1);
+      background: var(--primary-soft);
     }
 
     .whatsapp-nav {
-      background-color: #25D366;
-      color: white !important;
-      padding: 0.5rem 1.2rem !important;
+      background: var(--accent);
+      color: var(--primary) !important;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
     .whatsapp-nav:hover {
-      background-color: #128C7E;
+      background: var(--accent-light);
+      color: var(--primary-dark) !important;
     }
 
-    /* ===== HERO SECTION ===== */
+    /* HERO OTIMIZADO */
     .hero {
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-      margin-bottom: 3rem;
+      padding: 3rem 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M60 60 L0 0" stroke="rgba(255,255,255,0.05)" stroke-width="1"/><path d="M60 0 L0 60" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+      opacity: 0.3;
     }
 
     .hero-content {
       max-width: 800px;
       margin: 0 auto;
+      text-align: center;
+      padding: 0 1rem;
+      position: relative;
+      z-index: 1;
     }
 
     .hero h1 {
-      font-size: 2.5rem;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
       margin-bottom: 1rem;
-      font-weight: 700;
+      letter-spacing: -0.02em;
     }
 
     .hero p {
-      font-size: 1.2rem;
-      opacity: 0.9;
+      font-size: clamp(1rem, 3vw, 1.2rem);
+      opacity: 0.95;
       margin-bottom: 2rem;
       max-width: 600px;
       margin-left: auto;
       margin-right: auto;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     .hero-stats {
       display: flex;
       justify-content: center;
-      gap: 4rem;
-      margin-top: 2rem;
+      gap: clamp(2rem, 8vw, 4rem);
       flex-wrap: wrap;
     }
 
@@ -150,35 +244,34 @@
     }
 
     .stat-number {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: white;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 800;
       display: block;
+      line-height: 1.2;
+      color: var(--accent);
     }
 
     .stat-label {
-      font-size: 0.9rem;
-      opacity: 0.8;
+      font-size: 0.85rem;
+      opacity: 0.9;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
-    /* ===== MAIN CONTAINER ===== */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 2rem;
+    /* SEÇÕES */
+    .section {
+      padding: 3rem 0;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
 
     .section-title h2 {
-      font-size: 2rem;
-      color: var(--secondary-color);
-      margin-bottom: 0.5rem;
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      color: var(--primary);
+      margin-bottom: 0.75rem;
       position: relative;
       display: inline-block;
     }
@@ -186,75 +279,82 @@
     .section-title h2::after {
       content: '';
       position: absolute;
-      width: 60px;
+      width: 50px;
       height: 4px;
-      background-color: var(--accent-color);
-      bottom: -10px;
+      background: var(--accent);
+      bottom: -8px;
       left: 50%;
       transform: translateX(-50%);
       border-radius: 2px;
     }
 
     .section-title p {
-      color: var(--text-secondary);
+      color: var(--text-light);
       max-width: 600px;
       margin: 1rem auto 0;
+      font-size: 1rem;
     }
 
-    /* ===== SERVIÇOS ===== */
-    .servicos {
+    /* CARDS DE SERVIÇOS */
+    .servicos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 1.5rem;
-      margin-bottom: 4rem;
+      margin-top: 1rem;
     }
 
     .card {
-      background: var(--card-bg);
+      background: var(--white);
       border-radius: var(--radius);
-      padding: 2rem;
-      box-shadow: var(--shadow-md);
+      padding: 1.5rem;
+      box-shadow: var(--shadow);
       cursor: pointer;
       transition: var(--transition);
-      border: 1px solid var(--border-color);
-      height: 100%;
+      border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
+      height: 100%;
+    }
+
+    .card:active {
+      transform: scale(0.98);
     }
 
     .card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary-color);
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
     }
 
     .card-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-      border-radius: 12px;
+      width: 50px;
+      height: 50px;
+      background: var(--primary);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .card-icon i {
-      font-size: 1.8rem;
-      color: white;
+      font-size: 1.5rem;
+      color: var(--accent);
     }
 
     .card h3 {
-      font-size: 1.3rem;
-      color: var(--secondary-color);
-      margin-bottom: 0.8rem;
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 0.5rem;
+      font-weight: 700;
     }
 
     .card p {
-      color: var(--text-secondary);
-      font-size: 0.95rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
       margin-bottom: 1.5rem;
-      flex-grow: 1;
+      flex: 1;
+      line-height: 1.5;
     }
 
     .card-footer {
@@ -265,104 +365,102 @@
     }
 
     .card-badge {
-      background-color: var(--light-bg);
-      color: var(--primary-color);
-      padding: 0.3rem 0.8rem;
+      background: var(--light-gray);
+      color: var(--primary);
+      padding: 0.25rem 0.75rem;
       border-radius: 20px;
-      font-size: 0.8rem;
+      font-size: 0.75rem;
       font-weight: 600;
     }
 
     .card-arrow {
-      color: var(--primary-color);
-      font-size: 1.2rem;
-      transition: transform 0.3s ease;
+      color: var(--accent);
+      font-size: 1rem;
+      transition: transform 0.2s;
     }
 
     .card:hover .card-arrow {
-      transform: translateX(5px);
+      transform: translateX(4px);
     }
 
-    /* ===== FORM SECTION ===== */
-    .form-section {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 3rem;
+    /* FORMULÁRIO */
+    .form-wrapper {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.5rem;
       box-shadow: var(--shadow-md);
-      margin-bottom: 4rem;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--border);
     }
 
-    .form-header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .form-header h2 {
-      color: var(--secondary-color);
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .form-header p {
-      color: var(--text-secondary);
+    @media (min-width: 768px) {
+      .form-wrapper {
+        padding: 2.5rem;
+      }
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
 
-    @media (max-width: 768px) {
+    @media (min-width: 768px) {
       .form-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
       }
     }
 
     .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    .form-group label {
-      display: block;
-      margin-bottom: 0.5rem;
-      font-weight: 500;
-      color: var(--text-primary);
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 0.9rem 1rem;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      transition: var(--transition);
-      background-color: white;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-    }
-
-    textarea {
-      resize: vertical;
-      min-height: 150px;
+      margin-bottom: 0;
     }
 
     .form-group.full-width {
       grid-column: 1 / -1;
     }
 
-    button {
-      background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .form-group label i {
+      color: var(--accent);
+      margin-right: 0.5rem;
+      width: 16px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: var(--transition);
+      background: var(--white);
+      -webkit-appearance: none;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(230, 177, 126, 0.1);
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn {
+      background: var(--primary);
       color: white;
       border: none;
       padding: 1rem 2rem;
-      border-radius: 8px;
+      border-radius: var(--radius-sm);
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
@@ -370,42 +468,77 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.75rem;
       width: 100%;
+      border: 1px solid transparent;
     }
 
-    button:hover {
-      background: linear-gradient(135deg, var(--primary-dark), #1e40af);
-      transform: translateY(-2px);
+    .btn:active {
+      transform: scale(0.98);
+    }
+
+    .btn:hover {
+      background: var(--primary-dark);
       box-shadow: var(--shadow-md);
     }
 
-    /* ===== FOOTER ===== */
-    footer {
-      background-color: var(--secondary-color);
-      color: white;
-      padding: 3rem 2rem 1.5rem;
-      margin-top: 4rem;
+    .btn i {
+      font-size: 1.1rem;
+      color: var(--accent);
     }
 
-    .footer-content {
+    /* FOOTER */
+    footer {
+      background: var(--primary-dark);
+      color: white;
+      padding: 3rem 0 1.5rem;
+      margin-top: 3rem;
+    }
+
+    .footer-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: 1fr;
       gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 640px) {
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .footer-grid {
+        grid-template-columns: 2fr 1fr 1fr;
+      }
     }
 
     .footer-section h3 {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      margin-bottom: 1.25rem;
       color: white;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-section h3::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 30px;
+      height: 2px;
+      background: var(--accent);
     }
 
     .footer-section p {
-      color: #cbd5e1;
-      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.6);
+      line-height: 1.6;
       margin-bottom: 1rem;
+      font-size: 0.95rem;
     }
 
     .contact-info {
@@ -414,37 +547,53 @@
 
     .contact-info li {
       display: flex;
-      align-items: center;
-      gap: 0.8rem;
+      align-items: flex-start;
+      gap: 0.75rem;
       margin-bottom: 1rem;
-      color: #cbd5e1;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 0.95rem;
     }
 
     .contact-info i {
-      color: var(--accent-color);
+      color: var(--accent);
+      width: 18px;
+      margin-top: 2px;
+    }
+
+    .contact-info a {
+      color: rgba(255, 255, 255, 0.6);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent);
     }
 
     .social-links {
       display: flex;
-      gap: 1rem;
-      margin-top: 1.5rem;
+      gap: 0.75rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
     }
 
     .social-links a {
-      display: inline-flex;
+      display: flex;
       align-items: center;
       justify-content: center;
-      width: 40px;
-      height: 40px;
-      background-color: #334155;
+      width: 38px;
+      height: 38px;
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       color: white;
       text-decoration: none;
       transition: var(--transition);
+      font-size: 1.1rem;
     }
 
     .social-links a:hover {
-      background-color: var(--primary-color);
+      background: var(--accent);
+      color: var(--primary);
       transform: translateY(-3px);
     }
 
@@ -452,119 +601,176 @@
       text-align: center;
       padding-top: 2rem;
       margin-top: 2rem;
-      border-top: 1px solid #334155;
-      color: #94a3b8;
-      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.85rem;
     }
 
-    /* ===== WHATSAPP FLOATING BUTTON ===== */
+    /* WHATSAPP FLOATING BUTTON */
     .whatsapp-float {
       position: fixed;
-      bottom: 30px;
-      right: 30px;
-      background-color: #25D366;
-      color: white;
-      width: 60px;
-      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background: var(--accent);
+      color: var(--primary);
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.8rem;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
-      z-index: 1000;
-      transition: var(--transition);
+      font-size: 2rem;
+      box-shadow: 0 4px 12px rgba(230, 177, 126, 0.3);
+      z-index: 99;
+      transition: all 0.3s;
       text-decoration: none;
+      border: 2px solid white;
     }
 
-    .whatsapp-float:hover {
-      background-color: #128C7E;
-      transform: scale(1.1);
-      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
+    .whatsapp-float:active {
+      transform: scale(0.9);
     }
 
-    /* ===== RESPONSIVE ===== */
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        gap: 1rem;
-        padding: 1rem;
+    @media (min-width: 768px) {
+      .whatsapp-float {
+        width: 64px;
+        height: 64px;
+        font-size: 2.2rem;
+        bottom: 30px;
+        right: 30px;
       }
       
+      .whatsapp-float:hover {
+        background: var(--accent-light);
+        transform: scale(1.1);
+        box-shadow: 0 6px 16px rgba(230, 177, 126, 0.4);
+      }
+    }
+
+    /* MENU MOBILE */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      nav {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--primary);
+        padding: 1rem;
+        transform: translateY(-150%);
+        opacity: 0;
+        transition: transform 0.3s ease, opacity 0.2s ease;
+        box-shadow: var(--shadow-md);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 98;
+        pointer-events: none;
+      }
+
+      nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+
       nav ul {
-        gap: 1rem;
-        flex-wrap: wrap;
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      nav a {
+        display: block;
+        padding: 0.875rem 1rem;
+        font-size: 1rem;
+        white-space: normal;
+        color: rgba(255, 255, 255, 0.8);
+      }
+
+      nav a:hover,
+      nav a.active {
+        background: var(--primary-soft);
+        color: white;
+      }
+
+      .whatsapp-nav {
+        background: var(--accent);
+        color: var(--primary) !important;
         justify-content: center;
       }
-      
-      .hero {
-        padding: 3rem 1rem;
+
+      .whatsapp-nav:hover {
+        background: var(--accent-light);
       }
-      
-      .hero h1 {
-        font-size: 2rem;
-      }
-      
+
       .hero-stats {
-        gap: 3rem;
+        gap: 1.5rem;
       }
-      
+
       .stat-number {
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
-      
-      .form-section {
-        padding: 2rem 1.5rem;
-      }
-      
-      .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        font-size: 1.5rem;
-        bottom: 20px;
-        right: 20px;
+
+      .stat-label {
+        font-size: 0.75rem;
       }
     }
 
-    /* ===== UTILITY CLASSES ===== */
-    .text-center {
-      text-align: center;
+    /* ANIMAÇÕES */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
-    
-    .mt-1 { margin-top: 1rem; }
-    .mt-2 { margin-top: 2rem; }
-    .mt-3 { margin-top: 3rem; }
-    .mb-1 { margin-bottom: 1rem; }
-    .mb-2 { margin-bottom: 2rem; }
-    .mb-3 { margin-bottom: 3rem; }
+
+    .card {
+      animation: fadeIn 0.5s ease-out forwards;
+    }
+
+    .servicos-grid .card:nth-child(1) { animation-delay: 0.1s; }
+    .servicos-grid .card:nth-child(2) { animation-delay: 0.2s; }
+    .servicos-grid .card:nth-child(3) { animation-delay: 0.3s; }
+    .servicos-grid .card:nth-child(4) { animation-delay: 0.4s; }
+    .servicos-grid .card:nth-child(5) { animation-delay: 0.5s; }
   </style>
 </head>
 
 <body>
   <!-- Header -->
   <header>
-    <div class="logo-container">
-      <i class="fas fa-user-tie"></i>
-      <div class="logo-text">Breno Nascimento<br><span>CONSULTORIA</span></div>
+    <div class="header-container">
+      <div class="logo">
+        <div class="logo-icon">
+          <i class="fas fa-user-tie"></i>
+        </div>
+        <div class="logo-text">
+          Breno Nascimento
+          <span>CONSULTORIA EM TI</span>
+        </div>
+      </div>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav id="mainNav">
+        <ul>
+          <li><a href="#inicio" class="active"><i class="fas fa-home"></i> Início</a></li>
+          <li><a href="#servicos"><i class="fas fa-cogs"></i> Serviços</a></li>
+          <li><a href="#solicitar"><i class="fas fa-headset"></i> Solicitar</a></li>
+          <li><a href="https://wa.me/5584994291197" target="_blank" class="whatsapp-nav">
+            <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
+          </a></li>
+        </ul>
+      </nav>
     </div>
-    
-    <nav>
-      <ul>
-        <li><a href="#" class="active"><i class="fas fa-home"></i> Início</a></li>
-        <li><a href="#servicos"><i class="fas fa-cogs"></i> Serviços</a></li>
-        <li><a href="#solicitar"><i class="fas fa-headset"></i> Solicitar</a></li>
-        <li><a href="https://wa.me/5584994291197" target="_blank" class="whatsapp-nav">
-          <i class="fab fa-whatsapp"></i> WhatsApp
-        </a></li>
-      </ul>
-    </nav>
   </header>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="inicio">
     <div class="hero-content">
-      <h1>Consultoria Especializada em TI</h1>
-      <p>Soluções personalizadas em tecnologia para sua empresa, com expertise técnica e abordagem consultiva focada em resultados.</p>
+      <h1>Suporte em TI para Você e sua Empresa</h1>
+      <p>Atendimento especializado para empresas e pessoas físicas. Soluções rápidas para seu computador, notebook ou infraestrutura corporativa.</p>
       
       <div class="hero-stats">
         <div class="stat-item">
@@ -579,23 +785,23 @@
     </div>
   </section>
 
-  <div class="container">
-    <!-- Serviços -->
-    <div id="servicos">
+  <!-- Serviços -->
+  <section class="section" id="servicos">
+    <div class="container">
       <div class="section-title">
-        <h2>Serviços de Consultoria</h2>
-        <p>Soluções especializadas para otimizar a infraestrutura e processos de TI da sua empresa</p>
+        <h2>Serviços de TI</h2>
+        <p>Soluções para todos os públicos - de problemas domésticos a demandas corporativas</p>
       </div>
 
-      <div class="servicos">
+      <div class="servicos-grid">
         <div class="card" onclick="preencherServico('Suporte Técnico')">
           <div class="card-icon">
             <i class="fas fa-tools"></i>
           </div>
           <h3>Suporte Técnico</h3>
-          <p>Atendimento remoto, formatação, pacote Office, remoção de vírus e suporte para computadores e sistemas.</p>
+          <p>Para seu computador pessoal ou da empresa: formatação, limpeza, remoção de vírus, instalação de programas e muito mais.</p>
           <div class="card-footer">
-            <span class="card-badge">Prioridade Alta</span>
+            <span class="card-badge">PC & Notebook</span>
             <i class="fas fa-arrow-right card-arrow"></i>
           </div>
         </div>
@@ -605,9 +811,9 @@
             <i class="fas fa-print"></i>
           </div>
           <h3>Impressoras</h3>
-          <p>Instalação, configuração, compartilhamento em rede e correção de falhas.</p>
+          <p>Configuração de impressoras domésticas e corporativas, instalação de drivers, compartilhamento em rede e solução de falhas.</p>
           <div class="card-footer">
-            <span class="card-badge">Suporte Local</span>
+            <span class="card-badge">Configuração</span>
             <i class="fas fa-arrow-right card-arrow"></i>
           </div>
         </div>
@@ -616,10 +822,10 @@
           <div class="card-icon">
             <i class="fas fa-database"></i>
           </div>
-          <h3>Backups</h3>
-          <p>Backup local e em nuvem, proteção e recuperação de dados críticos.</p>
+          <h3>Backup de Dados</h3>
+          <p>Não perca suas fotos, documentos e arquivos importantes. Soluções de backup para uso pessoal e corporativo.</p>
           <div class="card-footer">
-            <span class="card-badge">Segurança</span>
+            <span class="card-badge">Proteção</span>
             <i class="fas fa-arrow-right card-arrow"></i>
           </div>
         </div>
@@ -628,10 +834,10 @@
           <div class="card-icon">
             <i class="fas fa-chart-line"></i>
           </div>
-          <h3>Consultoria de TI</h3>
-          <p>Análise de ambiente, segurança da informação e melhorias de infraestrutura.</p>
+          <h3>Consultoria</h3>
+          <p>Para empresas: análise de infraestrutura, segurança da informação e otimização de processos. Para usuários: orientação na compra do PC ideal.</p>
           <div class="card-footer">
-            <span class="card-badge">Estratégico</span>
+            <span class="card-badge">Personalizado</span>
             <i class="fas fa-arrow-right card-arrow"></i>
           </div>
         </div>
@@ -640,48 +846,53 @@
           <div class="card-icon">
             <i class="fas fa-desktop"></i>
           </div>
-          <h3>Montagem e Upgrade</h3>
-          <p>Montagem de computadores, upgrades de SSD, memória e performance.</p>
+          <h3>Upgrade e Montagem</h3>
+          <p>Deixar seu PC mais rápido? Upgrades de SSD, memória RAM. Quer um computador novo? Montagem sob medida para seu uso.</p>
           <div class="card-footer">
-            <span class="card-badge">Hardware</span>
+            <span class="card-badge">Performance</span>
             <i class="fas fa-arrow-right card-arrow"></i>
           </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- Formulário -->
-    <div id="solicitar">
+  <!-- Formulário -->
+  <section class="section" id="solicitar">
+    <div class="container">
       <div class="section-title">
-        <h2>Solicitar Consultoria</h2>
-        <p>Preencha o formulário abaixo e entrarei em contato para uma avaliação personalizada</p>
+        <h2>Solicitar Atendimento</h2>
+        <p>Preencha o formulário abaixo - seja para uso pessoal ou empresarial, retornarei o mais rápido possível</p>
       </div>
 
-      <div class="form-section">
+      <div class="form-wrapper">
         <form id="atendimentoForm">
           <div class="form-grid">
             <div class="form-group">
-              <label for="nome"><i class="fas fa-user"></i> Nome Completo</label>
-              <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+              <label for="nome"><i class="fas fa-user"></i> Nome Completo*</label>
+              <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
             </div>
 
             <div class="form-group">
-              <label for="telefone"><i class="fas fa-phone"></i> Telefone / WhatsApp</label>
+              <label for="telefone"><i class="fas fa-phone"></i> Telefone / WhatsApp*</label>
               <input type="tel" id="telefone" name="telefone" placeholder="(84) 99429-1197" required>
             </div>
 
             <div class="form-group">
-              <label for="email"><i class="fas fa-envelope"></i> E-mail</label>
-              <input type="email" id="email" name="email" placeholder="seu.email@empresa.com" required>
+              <label for="email"><i class="fas fa-envelope"></i> E-mail*</label>
+              <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
             </div>
 
             <div class="form-group">
-              <label for="empresa"><i class="fas fa-building"></i> Empresa (opcional)</label>
-              <input type="text" id="empresa" name="empresa" placeholder="Nome da sua empresa">
+              <label for="tipo_cliente"><i class="fas fa-user-tag"></i> Tipo de Atendimento</label>
+              <select id="tipo_cliente" name="tipo_cliente">
+                <option value="pessoa_fisica" selected>Pessoa Física (Uso Pessoal)</option>
+                <option value="pessoa_juridica">Pessoa Jurídica (Empresa)</option>
+              </select>
             </div>
 
             <div class="form-group">
-              <label for="servico"><i class="fas fa-cogs"></i> Tipo de Serviço</label>
+              <label for="servico"><i class="fas fa-cogs"></i> Tipo de Serviço*</label>
               <select id="servico" name="servico" required>
                 <option value="">Selecione o serviço</option>
                 <option>Suporte Técnico</option>
@@ -698,218 +909,217 @@
                 <option value="baixa">Baixa - Pode aguardar</option>
                 <option value="media" selected>Média - Próximos dias</option>
                 <option value="alta">Alta - Necessário hoje</option>
-                <option value="critica">Crítica - Sistema parado</option>
+                <option value="critica">Crítica - Equipamento parado</option>
               </select>
             </div>
 
             <div class="form-group full-width">
-              <label for="mensagem"><i class="fas fa-comment-alt"></i> Descrição Detalhada</label>
-              <textarea id="mensagem" name="mensagem" placeholder="Descreva sua necessidade com detalhes"></textarea>
+              <label for="mensagem"><i class="fas fa-comment-alt"></i> Descreva seu problema ou necessidade</label>
+              <textarea id="mensagem" name="mensagem" placeholder="Ex: Meu notebook está lento, não liga, preciso de um PC para jogos/trabalho, empresa precisa de suporte na rede..."></textarea>
             </div>
           </div>
 
           <div class="form-group mt-3">
-            <button type="submit">
-              <i class="fas fa-paper-plane"></i> Solicitar Consultoria
+            <button type="submit" class="btn">
+              <i class="fas fa-paper-plane"></i> Solicitar Atendimento
             </button>
           </div>
         </form>
       </div>
     </div>
-  </div>
+  </section>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Breno Nascimento</h3>
-        <p>CONSULTORIA em Tecnologia da Informação. Soluções personalizadas para otimizar a infraestrutura e processos de TI da sua empresa.</p>
-        <div class="social-links">
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="https://wa.me/5584994291197" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fas fa-envelope"></i></a>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-section">
+          <h3>Breno Nascimento</h3>
+          <p>Atendimento especializado em TI para todos os públicos. Soluções rápidas e personalizadas para seu computador, notebook ou empresa.</p>
+          <div class="social-links">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://wa.me/5584994291197" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Contato</h3>
+          <ul class="contact-info">
+            <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5584994291197">(84) 99429-1197</a></li>
+            <li><i class="fas fa-envelope"></i> <a href="mailto:antoniobreno500@gmail.com">antoniobreno500@gmail.com</a></li>
+            <li><i class="fas fa-map-marker-alt"></i> Natal, RN</li>
+            <li><i class="fas fa-clock"></i> Seg-Sex: 8h às 18h | Sáb: 9h às 13h</li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Links Rápidos</h3>
+          <ul class="contact-info">
+            <li><i class="fas fa-chevron-right"></i> <a href="#servicos">Serviços</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="#solicitar">Solicitar Atendimento</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="#">Sobre</a></li>
+            <li><i class="fas fa-chevron-right"></i> <a href="#">Política de Privacidade</a></li>
+          </ul>
         </div>
       </div>
       
-      <div class="footer-section">
-        <h3>Contato</h3>
-        <ul class="contact-info">
-          <li><i class="fab fa-whatsapp"></i> (84) 99429-1197</li>
-          <li><i class="fas fa-envelope"></i> contato@brenonascimento.com</li>
-          <li><i class="fas fa-map-marker-alt"></i> São Paulo, SP</li>
-          <li><i class="fas fa-clock"></i> Seg-Sex: 8h às 18h | Sáb: 9h às 13h</li>
-        </ul>
+      <div class="copyright">
+        <p>&copy; 2024 Breno Nascimento - Todos os direitos reservados</p>
       </div>
-      
-      <div class="footer-section">
-        <h3>Links Rápidos</h3>
-        <ul class="contact-info">
-          <li><i class="fas fa-chevron-right"></i> <a href="#servicos" style="color:#cbd5e1; text-decoration:none;">Nossos Serviços</a></li>
-          <li><i class="fas fa-chevron-right"></i> <a href="#solicitar" style="color:#cbd5e1; text-decoration:none;">Solicitar Consultoria</a></li>
-          <li><i class="fas fa-chevron-right"></i> <a href="#" style="color:#cbd5e1; text-decoration:none;">Sobre</a></li>
-          <li><i class="fas fa-chevron-right"></i> <a href="#" style="color:#cbd5e1; text-decoration:none;">Política de Privacidade</a></li>
-        </ul>
-      </div>
-    </div>
-    
-    <div class="copyright">
-      <p>&copy; 2023 Breno Nascimento - CONSULTORIA. Todos os direitos reservados.</p>
     </div>
   </footer>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/5584994291197" target="_blank" class="whatsapp-float">
+  <a href="https://wa.me/5584994291197" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
     <i class="fab fa-whatsapp"></i>
   </a>
 
   <script>
+    // Menu Mobile
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    
+    if (menuToggle) {
+      menuToggle.addEventListener('click', () => {
+        mainNav.classList.toggle('active');
+        menuToggle.innerHTML = mainNav.classList.contains('active') 
+          ? '<i class="fas fa-times"></i>' 
+          : '<i class="fas fa-bars"></i>';
+      });
+
+      // Fechar menu ao clicar em link
+      document.querySelectorAll('#mainNav a').forEach(link => {
+        link.addEventListener('click', () => {
+          mainNav.classList.remove('active');
+          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+        });
+      });
+    }
+
     function preencherServico(servico) {
       const selectServico = document.getElementById('servico');
       const mensagem = document.getElementById('mensagem');
 
       selectServico.value = servico;
 
-      switch (servico) {
-        case 'Montagem e Upgrade':
-          mensagem.value = `Montagem e Upgrade:
-Finalidade do PC:
-Peças atuais:
-Upgrade desejado:
-Orçamento estimado:`;
-          break;
+      const templates = {
+        'Montagem e Upgrade': `Montagem e Upgrade:
+- Uso do computador (jogos/trabalho/estudo):
+- Peças que já possui:
+- Orçamento pretendido:
+- Precisa de ajuda para escolher as peças?`,
+        
+        'Suporte Técnico': `Suporte Técnico:
+- Qual problema está acontecendo?
+- O equipamento liga?
+- Sistema operacional (Windows/Mac/Linux):
+- Mensagem de erro (se houver):`,
+        
+        'Impressoras': `Impressoras:
+- Marca e modelo:
+- Qual problema apresenta?
+- Conexão (USB/Wi-Fi/Rede):
+- Mensagem de erro (se houver):`,
+        
+        'Backups': `Backup de Dados:
+- O que precisa recuperar?
+- É para uso pessoal ou empresarial?
+- Volume aproximado de dados:
+- Já possui backup anterior?`,
+        
+        'Consultoria de TI': `Consultoria:
+- Para empresa ou uso pessoal?
+- Qual sua principal necessidade?
+- Quantidade de usuários (se empresa):
+- Descreva sua situação atual:`
+      };
 
-        case 'Suporte Técnico':
-          mensagem.value = `Suporte Técnico:
-Qual o problema apresentado?
-O equipamento liga?
-Sistema operacional utilizado:
-Mensagem de erro (se houver):`;
-          break;
+      mensagem.value = templates[servico] || '';
 
-        case 'Impressoras':
-          mensagem.value = `Impressoras:
-Modelo da impressora:
-Problema apresentado:
-Está em rede ou USB?
-Mensagem de erro (se houver):`;
-          break;
-
-        case 'Backups':
-          mensagem.value = `Backups:
-Tipo de backup (local ou nuvem):
-Quantidade aproximada de dados:
-Frequência desejada:
-Necessita recuperação de dados?`;
-          break;
-
-        case 'Consultoria de TI':
-          mensagem.value = `Consultoria de TI:
-Tipo de ambiente (empresa ou residencial):
-Quantidade de usuários:
-Objetivo da consultoria:
-Principais dificuldades atuais:`;
-          break;
-
-        default:
-          mensagem.value = '';
-      }
-
-      // Rolar para o formulário
       document.getElementById('solicitar').scrollIntoView({ 
         behavior: 'smooth',
         block: 'start'
       });
       
-      // Destacar o campo de mensagem
-      mensagem.focus();
+      setTimeout(() => mensagem.focus(), 500);
     }
 
-    // ===== MÁSCARA TELEFONE =====
+    // Máscara de telefone
     const tel = document.getElementById('telefone');
-    tel.addEventListener('input', function () {
-      let v = tel.value.replace(/\D/g, '');
-      if (v.length > 11) v = v.substring(0, 11);
-      
-      if (v.length > 10) {
-        v = v.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
-      } else if (v.length > 6) {
-        v = v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
-      } else if (v.length > 2) {
-        v = v.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
-      } else if (v.length > 0) {
-        v = v.replace(/^(\d*)/, '($1');
-      }
-      tel.value = v;
-    });
+    if (tel) {
+      tel.addEventListener('input', function () {
+        let v = this.value.replace(/\D/g, '');
+        if (v.length > 11) v = v.substring(0, 11);
+        
+        if (v.length > 10) {
+          v = v.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+        } else if (v.length > 6) {
+          v = v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+        } else if (v.length > 2) {
+          v = v.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+        } else if (v.length > 0) {
+          v = v.replace(/^(\d*)/, '($1');
+        }
+        this.value = v;
+      });
+    }
 
-    // ===== SUBMISSÃO DO FORMULÁRIO =====
+    // Submissão do formulário
     document.getElementById('atendimentoForm').addEventListener('submit', function(e) {
       e.preventDefault();
       
-      // Validação básica
-      const nome = document.getElementById('nome').value;
-      const telefone = document.getElementById('telefone').value;
-      const servico = document.getElementById('servico').value;
-      const mensagem = document.getElementById('mensagem').value;
-      const email = document.getElementById('email').value;
-      const empresa = document.getElementById('empresa').value;
-      const urgencia = document.getElementById('urgencia').value;
+      const nome = document.getElementById('nome')?.value;
+      const telefone = document.getElementById('telefone')?.value;
+      const servico = document.getElementById('servico')?.value;
+      const mensagem = document.getElementById('mensagem')?.value;
+      const email = document.getElementById('email')?.value;
+      const tipo_clienteSelect = document.getElementById('tipo_cliente');
+      const tipo_cliente = tipo_clienteSelect?.options[tipo_clienteSelect.selectedIndex]?.text || 'Pessoa Física';
+      const urgenciaSelect = document.getElementById('urgencia');
+      const urgencia = urgenciaSelect?.options[urgenciaSelect.selectedIndex]?.text || 'Média';
       
       if (!nome || !telefone || !servico) {
         alert('Por favor, preencha os campos obrigatórios (Nome, Telefone e Serviço).');
         return;
       }
       
-      // Construir mensagem para WhatsApp
-      const textoWhatsApp = `*Nova Solicitação de Consultoria - Breno Nascimento CONSULTORIA*
+      const textoWhatsApp = `*Nova Solicitação de Atendimento - TI*
 
 *Nome:* ${nome}
 *Telefone:* ${telefone}
-*E-mail:* ${email}
-*Empresa:* ${empresa || 'Não informada'}
+*E-mail:* ${email || 'Não informado'}
+*Tipo:* ${tipo_cliente}
 *Serviço:* ${servico}
-*Urgência:* ${document.getElementById('urgencia').options[document.getElementById('urgencia').selectedIndex].text}
-*Mensagem:*
-${mensagem}
+*Urgência:* ${urgencia}
 
-_Esta solicitação foi enviada através do site_`;
+*Mensagem:*
+${mensagem || 'Não informada'}`;
       
-      // Codificar a mensagem para URL
       const mensagemCodificada = encodeURIComponent(textoWhatsApp);
-      
-      // Seu número de WhatsApp
       const numeroWhatsApp = '5584994291197';
-      
-      // Criar link do WhatsApp
       const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
       
-      // Abrir WhatsApp em nova aba
       window.open(linkWhatsApp, '_blank');
-      
-      // Mostrar confirmação
-      alert('Abrindo WhatsApp para enviar sua solicitação. Por favor, confirme o envio na conversa.');
-      
-      // Limpar formulário (opcional)
-      // this.reset();
+      alert('Redirecionando para WhatsApp...');
     });
 
-    // ===== NAVEGAÇÃO SUAVE =====
-    document.querySelectorAll('nav a').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        const href = this.getAttribute('href');
+    // Active link no scroll
+    window.addEventListener('scroll', () => {
+      const sections = document.querySelectorAll('section[id]');
+      const scrollY = window.pageYOffset;
+
+      sections.forEach(section => {
+        const sectionHeight = section.offsetHeight;
+        const sectionTop = section.offsetTop - 100;
+        const sectionId = section.getAttribute('id');
+        const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
         
-        if (href.startsWith('#')) {
-          e.preventDefault();
-          const targetId = href.substring(1);
-          const targetElement = document.getElementById(targetId);
-          
-          if (targetElement) {
-            targetElement.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start'
-            });
-          }
+        if (navLink && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+          navLink.classList.add('active');
+        } else if (navLink) {
+          navLink.classList.remove('active');
         }
       });
     });
