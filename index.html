@@ -2,14 +2,22 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Breno Nascimento - Consultoria TI</title>
+  <title>Breno Nascimento - Consultoria TI Profissional</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <meta name="description" content="Consultoria em TI - Suporte técnico para empresas e pessoas físicas">
+  <meta name="description" content="Consultoria especializada em TI - Suporte técnico para empresas e pessoas físicas em Natal e região">
+  <meta name="keywords" content="consultoria TI, suporte técnico, manutenção computadores, backup, redes, informática">
+  <meta name="author" content="Breno Nascimento">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Breno Nascimento - Consultoria TI">
+  <meta property="og:description" content="Suporte técnico especializado para empresas e pessoas físicas">
+  <meta property="og:type" content="website">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
   <style>
-    /* RESET E VARIÁVEIS - NOVA PALETA DE CORES */
+    /* RESET E VARIÁVEIS - VERSÃO OTIMIZADA */
     * {
       margin: 0;
       padding: 0;
@@ -17,104 +25,181 @@
     }
 
     :root {
-      /* Cores principais - Azul mais sofisticado */
-      --primary: #0A2647;        /* Azul escuro - principal */
-      --primary-dark: #05182F;    /* Azul mais escuro */
-      --primary-light: #1B3A5C;   /* Azul médio */
-      --primary-soft: #2C4A6E;    /* Azul suave */
+      /* Cores principais - Esquema refinado */
+      --primary: #0A2647;
+      --primary-dark: #041220;
+      --primary-light: #1e3a5f;
+      --primary-soft: #2c4a6e;
+      --primary-rgb: 10, 38, 71;
       
-      /* Cores de destaque */
-      --accent: #E6B17E;          /* Dourado suave - para destaques */
-      --accent-light: #F0C8A0;    /* Dourado claro */
-      --accent-dark: #C98F5A;      /* Dourado escuro */
+      /* Destaques */
+      --accent: #E6B17E;
+      --accent-light: #f5d0b0;
+      --accent-dark: #c98f5a;
+      --accent-rgb: 230, 177, 126;
       
-      /* Tons de cinza */
-      --secondary: #1E293B;       /* Azul muito escuro */
-      --light: #F8FAFC;           /* Fundo claro */
-      --light-gray: #F1F5F9;      /* Cinza muito claro */
-      --white: #FFFFFF;
-      
-      /* Textos */
-      --text: #0F172A;            /* Texto principal - quase preto */
-      --text-light: #475569;      /* Texto secundário */
-      --text-lighter: #64748B;    /* Texto terciário */
-      
-      /* Cores de feedback */
-      --success: #059669;          /* Verde mais sofisticado */
-      --warning: #D97706;          /* Laranja */
-      --error: #DC2626;            /* Vermelho */
-      
-      /* Bordas e sombras */
+      /* Neutros */
+      --background: #F8FAFC;
+      --surface: #FFFFFF;
+      --surface-hover: #F1F5F9;
       --border: #E2E8F0;
+      
+      /* Texto */
+      --text-primary: #0F172A;
+      --text-secondary: #475569;
+      --text-tertiary: #64748B;
+      --text-inverse: #FFFFFF;
+      
+      /* Feedback */
+      --success: #059669;
+      --warning: #D97706;
+      --error: #DC2626;
+      --info: #2563eb;
+      
+      /* Utilitários */
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
       --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
       --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+      --shadow-focus: 0 0 0 3px rgba(var(--accent-rgb), 0.2);
       
-      /* Bordas */
-      --radius-sm: 8px;
-      --radius: 12px;
+      --radius-sm: 6px;
+      --radius: 10px;
       --radius-lg: 16px;
-      --transition: all 0.2s ease;
+      
+      --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      
+      /* Layout */
+      --header-height: 70px;
+      --container-padding: 1rem;
+      --section-spacing: 4rem;
+    }
+
+    @media (min-width: 640px) {
+      :root {
+        --container-padding: 1.5rem;
+        --section-spacing: 5rem;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      :root {
+        --container-padding: 2rem;
+      }
+    }
+
+    /* RESET E BASE */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--light);
-      color: var(--text);
+      background: var(--background);
+      color: var(--text-primary);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
-    /* UTILITÁRIOS */
+    /* UTILITÁRIOS MODERNOS */
     .container {
       width: 100%;
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 var(--container-padding);
     }
 
-    @media (min-width: 640px) {
-      .container { padding: 0 1.5rem; }
+    .section {
+      padding: var(--section-spacing) 0;
     }
 
-    @media (min-width: 1024px) {
-      .container { padding: 0 2rem; }
+    .section-title {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 3rem;
     }
 
-    /* HEADER MODERNO */
+    .section-title h2 {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 70px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    .section-title p {
+      color: var(--text-secondary);
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* HEADER MELHORADO */
     header {
       background: var(--primary);
       position: sticky;
       top: 0;
       z-index: 100;
       box-shadow: var(--shadow);
+      height: var(--header-height);
     }
 
     .header-container {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      height: 70px;
+      height: 100%;
       max-width: 1280px;
       margin: 0 auto;
-      padding: 0 1rem;
+      padding: 0 var(--container-padding);
     }
 
     .logo {
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      text-decoration: none;
     }
 
     .logo-icon {
-      width: 40px;
-      height: 40px;
+      width: 42px;
+      height: 42px;
       background: var(--accent);
       border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: var(--transition);
     }
 
     .logo-icon i {
@@ -137,7 +222,7 @@
       letter-spacing: 1px;
     }
 
-    /* MENU MOBILE */
+    /* MENU MODERNO */
     .menu-toggle {
       display: none;
       background: none;
@@ -146,13 +231,20 @@
       font-size: 1.5rem;
       cursor: pointer;
       padding: 0.5rem;
-      width: auto;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-sm);
+      transition: var(--transition);
+    }
+
+    .menu-toggle:hover {
+      background: rgba(255, 255, 255, 0.1);
     }
 
     nav ul {
       display: flex;
       list-style: none;
-      gap: 0.5rem;
+      gap: 0.25rem;
     }
 
     nav a {
@@ -164,32 +256,54 @@
       border-radius: var(--radius-sm);
       transition: var(--transition);
       white-space: nowrap;
-    }
-
-    nav a:hover,
-    nav a.active {
-      color: white;
-      background: var(--primary-soft);
-    }
-
-    .whatsapp-nav {
-      background: var(--accent);
-      color: var(--primary) !important;
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
+    nav a i {
+      font-size: 1rem;
+    }
+
+    nav a:hover {
+      color: white;
+      background: var(--primary-soft);
+    }
+
+    nav a.active {
+      color: white;
+      background: var(--primary-soft);
+      position: relative;
+    }
+
+    nav a.active::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 1rem;
+      right: 1rem;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 1px;
+    }
+
+    .whatsapp-nav {
+      background: var(--accent);
+      color: var(--primary) !important;
+      font-weight: 600;
+    }
+
     .whatsapp-nav:hover {
       background: var(--accent-light);
       color: var(--primary-dark) !important;
+      transform: translateY(-1px);
     }
 
-    /* HERO OTIMIZADO */
+    /* HERO MODERNO COM ANIMAÇÃO */
     .hero {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: white;
-      padding: 3rem 0;
+      padding: calc(var(--section-spacing) * 0.8) 0;
       position: relative;
       overflow: hidden;
     }
@@ -201,119 +315,155 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M60 60 L0 0" stroke="rgba(255,255,255,0.05)" stroke-width="1"/><path d="M60 0 L0 60" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></svg>');
+      background: 
+        radial-gradient(circle at 20% 50%, rgba(var(--accent-rgb), 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 80% 80%, rgba(var(--accent-rgb), 0.1) 0%, transparent 50%);
+      opacity: 0.5;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: url('data:image/svg+xml,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><path d="M60 60 L0 0" stroke="rgba(255,255,255,0.03)" stroke-width="1"/><path d="M60 0 L0 60" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></svg>');
       opacity: 0.3;
     }
 
     .hero-content {
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
       text-align: center;
-      padding: 0 1rem;
+      padding: 0 var(--container-padding);
       position: relative;
-      z-index: 1;
+      z-index: 2;
     }
 
     .hero h1 {
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-size: clamp(2.2rem, 6vw, 3.5rem);
       font-weight: 800;
       line-height: 1.2;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
       letter-spacing: -0.02em;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .hero .highlight {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 5px;
+      left: 0;
+      right: 0;
+      height: 8px;
+      background: rgba(var(--accent-rgb), 0.3);
+      z-index: -1;
+      border-radius: 4px;
     }
 
     .hero p {
-      font-size: clamp(1rem, 3vw, 1.2rem);
+      font-size: clamp(1.1rem, 3vw, 1.25rem);
       opacity: 0.95;
-      margin-bottom: 2rem;
-      max-width: 600px;
+      margin-bottom: 2.5rem;
+      max-width: 700px;
       margin-left: auto;
       margin-right: auto;
       color: rgba(255, 255, 255, 0.9);
+      animation: fadeInUp 0.8s 0.1s ease-out both;
     }
 
     .hero-stats {
       display: flex;
       justify-content: center;
-      gap: clamp(2rem, 8vw, 4rem);
+      gap: clamp(2rem, 8vw, 5rem);
       flex-wrap: wrap;
+      animation: fadeInUp 0.8s 0.2s ease-out both;
     }
 
     .stat-item {
       text-align: center;
+      position: relative;
+    }
+
+    .stat-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -2.5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 640px) {
+      .stat-item:not(:last-child)::after {
+        display: none;
+      }
     }
 
     .stat-number {
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-size: clamp(2.2rem, 5vw, 3rem);
       font-weight: 800;
       display: block;
       line-height: 1.2;
       color: var(--accent);
+      margin-bottom: 0.25rem;
     }
 
     .stat-label {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       opacity: 0.9;
       text-transform: uppercase;
       letter-spacing: 1px;
+      font-weight: 500;
     }
 
-    /* SEÇÕES */
-    .section {
-      padding: 3rem 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 2.5rem;
-    }
-
-    .section-title h2 {
-      font-size: clamp(1.5rem, 4vw, 2rem);
-      color: var(--primary);
-      margin-bottom: 0.75rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    .section-title h2::after {
-      content: '';
-      position: absolute;
-      width: 50px;
-      height: 4px;
-      background: var(--accent);
-      bottom: -8px;
-      left: 50%;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-
-    .section-title p {
-      color: var(--text-light);
-      max-width: 600px;
-      margin: 1rem auto 0;
-      font-size: 1rem;
-    }
-
-    /* CARDS DE SERVIÇOS */
+    /* SERVIÇOS CARDS APRIMORADOS */
     .servicos-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 1.5rem;
-      margin-top: 1rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.75rem;
+      margin-top: 2rem;
     }
 
     .card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 1.5rem;
+      background: var(--surface);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
       box-shadow: var(--shadow);
       cursor: pointer;
-      transition: var(--transition);
+      transition: var(--transition-slow);
       border: 1px solid var(--border);
       display: flex;
       flex-direction: column;
       height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      transform: scaleX(0);
+      transition: var(--transition-slow);
+      transform-origin: left;
+    }
+
+    .card:hover::before {
+      transform: scaleX(1);
     }
 
     .card:active {
@@ -321,40 +471,49 @@
     }
 
     .card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--accent);
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
     }
 
     .card-icon {
-      width: 50px;
-      height: 50px;
-      background: var(--primary);
-      border-radius: 10px;
+      width: 60px;
+      height: 60px;
+      background: rgba(var(--primary-rgb), 0.1);
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .card:hover .card-icon {
+      background: var(--primary);
     }
 
     .card-icon i {
-      font-size: 1.5rem;
+      font-size: 1.75rem;
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .card:hover .card-icon i {
       color: var(--accent);
     }
 
     .card h3 {
-      font-size: 1.2rem;
+      font-size: 1.35rem;
       color: var(--primary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.75rem;
       font-weight: 700;
     }
 
     .card p {
-      color: var(--text-light);
-      font-size: 0.9rem;
+      color: var(--text-secondary);
+      font-size: 0.95rem;
       margin-bottom: 1.5rem;
       flex: 1;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .card-footer {
@@ -362,51 +521,62 @@
       justify-content: space-between;
       align-items: center;
       margin-top: auto;
+      border-top: 1px solid var(--border);
+      padding-top: 1.25rem;
     }
 
     .card-badge {
-      background: var(--light-gray);
+      background: var(--surface-hover);
       color: var(--primary);
-      padding: 0.25rem 0.75rem;
+      padding: 0.35rem 1rem;
       border-radius: 20px;
       font-size: 0.75rem;
       font-weight: 600;
+      letter-spacing: 0.3px;
     }
 
     .card-arrow {
       color: var(--accent);
       font-size: 1rem;
-      transition: transform 0.2s;
+      transition: var(--transition);
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(var(--accent-rgb), 0.1);
+      border-radius: 50%;
     }
 
     .card:hover .card-arrow {
-      transform: translateX(4px);
+      transform: translateX(4px) rotate(-45deg);
+      background: var(--accent);
+      color: var(--primary);
     }
 
-    /* FORMULÁRIO */
+    /* FORMULÁRIO OTIMIZADO */
     .form-wrapper {
-      background: var(--white);
+      background: var(--surface);
       border-radius: var(--radius-lg);
-      padding: 1.5rem;
-      box-shadow: var(--shadow-md);
+      padding: 2rem;
+      box-shadow: var(--shadow-lg);
       border: 1px solid var(--border);
     }
 
     @media (min-width: 768px) {
       .form-wrapper {
-        padding: 2.5rem;
+        padding: 3rem;
       }
     }
 
     .form-grid {
       display: grid;
-      gap: 1.25rem;
+      gap: 1.5rem;
     }
 
     @media (min-width: 768px) {
       .form-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.5rem;
       }
     }
 
@@ -419,35 +589,54 @@
     }
 
     .form-group label {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       margin-bottom: 0.5rem;
       font-weight: 600;
       font-size: 0.9rem;
-      color: var(--text);
+      color: var(--text-primary);
     }
 
     .form-group label i {
       color: var(--accent);
-      margin-right: 0.5rem;
-      width: 16px;
+      width: 18px;
+    }
+
+    .form-group label .required {
+      color: var(--error);
+      margin-left: 0.25rem;
     }
 
     input, select, textarea {
       width: 100%;
-      padding: 0.85rem 1rem;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border);
+      padding: 0.9rem 1.25rem;
+      border-radius: var(--radius);
+      border: 2px solid var(--border);
       font-family: 'Inter', sans-serif;
       font-size: 1rem;
       transition: var(--transition);
-      background: var(--white);
+      background: var(--surface);
       -webkit-appearance: none;
+      appearance: none;
+    }
+
+    input:hover, select:hover, textarea:hover {
+      border-color: var(--text-tertiary);
     }
 
     input:focus, select:focus, textarea:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(230, 177, 126, 0.1);
+      box-shadow: var(--shadow-focus);
+    }
+
+    select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-size: 1rem;
+      padding-right: 2.5rem;
     }
 
     textarea {
@@ -460,7 +649,7 @@
       color: white;
       border: none;
       padding: 1rem 2rem;
-      border-radius: var(--radius-sm);
+      border-radius: var(--radius);
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
@@ -470,16 +659,34 @@
       justify-content: center;
       gap: 0.75rem;
       width: 100%;
-      border: 1px solid transparent;
+      border: 2px solid transparent;
+      letter-spacing: 0.3px;
+      position: relative;
+      overflow: hidden;
     }
 
-    .btn:active {
-      transform: scale(0.98);
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
+    }
+
+    .btn:active::before {
+      width: 300px;
+      height: 300px;
     }
 
     .btn:hover {
       background: var(--primary-dark);
-      box-shadow: var(--shadow-md);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
     }
 
     .btn i {
@@ -487,19 +694,35 @@
       color: var(--accent);
     }
 
-    /* FOOTER */
+    .btn:focus-visible {
+      outline: none;
+      box-shadow: var(--shadow-focus);
+    }
+
+    /* FOOTER REFINADO */
     footer {
       background: var(--primary-dark);
       color: white;
-      padding: 3rem 0 1.5rem;
-      margin-top: 3rem;
+      padding: 4rem 0 1.5rem;
+      margin-top: 4rem;
+      position: relative;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), transparent);
     }
 
     .footer-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 2rem;
-      margin-bottom: 2rem;
+      gap: 2.5rem;
+      margin-bottom: 3rem;
     }
 
     @media (min-width: 640px) {
@@ -510,34 +733,35 @@
 
     @media (min-width: 1024px) {
       .footer-grid {
-        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-columns: 2fr 1.5fr 1.5fr;
       }
     }
 
     .footer-section h3 {
       font-size: 1.1rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
       color: white;
       font-weight: 600;
       letter-spacing: 0.5px;
+      text-transform: uppercase;
       position: relative;
-      display: inline-block;
     }
 
     .footer-section h3::after {
       content: '';
       position: absolute;
       left: 0;
-      bottom: -6px;
-      width: 30px;
-      height: 2px;
+      bottom: -8px;
+      width: 40px;
+      height: 3px;
       background: var(--accent);
+      border-radius: 1.5px;
     }
 
     .footer-section p {
       color: rgba(255, 255, 255, 0.6);
-      line-height: 1.6;
-      margin-bottom: 1rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
       font-size: 0.95rem;
     }
 
@@ -552,11 +776,17 @@
       margin-bottom: 1rem;
       color: rgba(255, 255, 255, 0.6);
       font-size: 0.95rem;
+      transition: var(--transition);
+    }
+
+    .contact-info li:hover {
+      color: white;
+      transform: translateX(5px);
     }
 
     .contact-info i {
       color: var(--accent);
-      width: 18px;
+      width: 20px;
       margin-top: 2px;
     }
 
@@ -573,7 +803,7 @@
     .social-links {
       display: flex;
       gap: 0.75rem;
-      margin-top: 1rem;
+      margin-top: 1.5rem;
       flex-wrap: wrap;
     }
 
@@ -581,8 +811,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 50%;
       color: white;
@@ -594,7 +824,7 @@
     .social-links a:hover {
       background: var(--accent);
       color: var(--primary);
-      transform: translateY(-3px);
+      transform: translateY(-3px) scale(1.05);
     }
 
     .copyright {
@@ -606,12 +836,12 @@
       font-size: 0.85rem;
     }
 
-    /* WHATSAPP FLOATING BUTTON */
+    /* WHATSAPP FLOATING BUTTON - OTIMIZADO */
     .whatsapp-float {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: var(--accent);
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
       color: var(--primary);
       width: 56px;
       height: 56px;
@@ -620,11 +850,24 @@
       align-items: center;
       justify-content: center;
       font-size: 2rem;
-      box-shadow: 0 4px 12px rgba(230, 177, 126, 0.3);
+      box-shadow: 0 8px 16px rgba(var(--accent-rgb), 0.3);
       z-index: 99;
-      transition: all 0.3s;
+      transition: var(--transition-slow);
       text-decoration: none;
       border: 2px solid white;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0.4);
+      }
+      70% {
+        box-shadow: 0 0 0 15px rgba(var(--accent-rgb), 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(var(--accent-rgb), 0);
+      }
     }
 
     .whatsapp-float:active {
@@ -642,31 +885,36 @@
       
       .whatsapp-float:hover {
         background: var(--accent-light);
-        transform: scale(1.1);
-        box-shadow: 0 6px 16px rgba(230, 177, 126, 0.4);
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 12px 24px rgba(var(--accent-rgb), 0.4);
+        animation: none;
       }
     }
 
-    /* MENU MOBILE */
+    /* MENU MOBILE MELHORADO */
     @media (max-width: 768px) {
       .menu-toggle {
-        display: block;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       nav {
         position: fixed;
-        top: 70px;
+        top: var(--header-height);
         left: 0;
         right: 0;
         background: var(--primary);
         padding: 1rem;
         transform: translateY(-150%);
         opacity: 0;
-        transition: transform 0.3s ease, opacity 0.2s ease;
-        box-shadow: var(--shadow-md);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
+        box-shadow: var(--shadow-lg);
         border-top: 1px solid rgba(255, 255, 255, 0.1);
         z-index: 98;
         pointer-events: none;
+        max-height: calc(100vh - var(--header-height));
+        overflow-y: auto;
       }
 
       nav.active {
@@ -681,50 +929,76 @@
       }
 
       nav a {
-        display: block;
-        padding: 0.875rem 1rem;
+        padding: 1rem;
         font-size: 1rem;
         white-space: normal;
-        color: rgba(255, 255, 255, 0.8);
+        color: rgba(255, 255, 255, 0.9);
+        border-radius: var(--radius);
+      }
+
+      nav a i {
+        width: 24px;
       }
 
       nav a:hover,
       nav a.active {
         background: var(--primary-soft);
-        color: white;
+      }
+
+      nav a.active::after {
+        display: none;
       }
 
       .whatsapp-nav {
         background: var(--accent);
         color: var(--primary) !important;
-        justify-content: center;
-      }
-
-      .whatsapp-nav:hover {
-        background: var(--accent-light);
+        justify-content: flex-start;
+        margin-top: 0.5rem;
+        font-weight: 700;
       }
 
       .hero-stats {
-        gap: 1.5rem;
+        gap: 2rem;
+      }
+
+      .stat-item:not(:last-child)::after {
+        display: none;
       }
 
       .stat-number {
-        font-size: 1.8rem;
+        font-size: 2rem;
       }
 
       .stat-label {
-        font-size: 0.75rem;
+        font-size: 0.8rem;
       }
     }
 
     /* ANIMAÇÕES */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideIn {
+      from { transform: translateX(-30px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
     }
 
     .card {
-      animation: fadeIn 0.5s ease-out forwards;
+      animation: fadeInUp 0.6s ease-out forwards;
+      opacity: 0;
     }
 
     .servicos-grid .card:nth-child(1) { animation-delay: 0.1s; }
@@ -732,397 +1006,659 @@
     .servicos-grid .card:nth-child(3) { animation-delay: 0.3s; }
     .servicos-grid .card:nth-child(4) { animation-delay: 0.4s; }
     .servicos-grid .card:nth-child(5) { animation-delay: 0.5s; }
+
+    /* SCROLLBAR PERSONALIZADA */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--surface-hover);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary-light);
+      border-radius: 5px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary);
+    }
+
+    /* LOADING STATE */
+    .loading {
+      position: relative;
+      pointer-events: none;
+      opacity: 0.7;
+    }
+
+    .loading::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - 15px);
+      left: calc(50% - 15px);
+      width: 30px;
+      height: 30px;
+      border: 3px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* TOAST NOTIFICATION */
+    .toast {
+      position: fixed;
+      bottom: 100px;
+      right: 30px;
+      background: var(--surface);
+      color: var(--text-primary);
+      padding: 1rem 1.5rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-lg);
+      border-left: 4px solid var(--success);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      z-index: 1000;
+      animation: slideIn 0.3s ease-out;
+      max-width: 400px;
+    }
+
+    .toast.error {
+      border-left-color: var(--error);
+    }
+
+    .toast i {
+      font-size: 1.25rem;
+      color: var(--success);
+    }
+
+    .toast.error i {
+      color: var(--error);
+    }
+
+    .toast.fade-out {
+      animation: fadeOut 0.3s ease-out forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: translateX(100%);
+      }
+    }
   </style>
 </head>
 
 <body>
+  <!-- Skip to main content for accessibility -->
+  <a href="#main-content" class="sr-only">Pular para o conteúdo principal</a>
+
   <!-- Header -->
   <header>
     <div class="header-container">
-      <div class="logo">
+      <a href="#inicio" class="logo" aria-label="Breno Nascimento - Página inicial">
         <div class="logo-icon">
-          <i class="fas fa-user-tie"></i>
+          <i class="fas fa-user-tie" aria-hidden="true"></i>
         </div>
         <div class="logo-text">
           Breno Nascimento
           <span>CONSULTORIA EM TI</span>
         </div>
-      </div>
+      </a>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Menu">
-        <i class="fas fa-bars"></i>
+      <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">
+        <i class="fas fa-bars" aria-hidden="true"></i>
       </button>
 
-      <nav id="mainNav">
+      <nav id="mainNav" aria-label="Principal">
         <ul>
-          <li><a href="#inicio" class="active"><i class="fas fa-home"></i> Início</a></li>
-          <li><a href="#servicos"><i class="fas fa-cogs"></i> Serviços</a></li>
-          <li><a href="#solicitar"><i class="fas fa-headset"></i> Solicitar</a></li>
-          <li><a href="https://wa.me/5584994291197" target="_blank" class="whatsapp-nav">
-            <i class="fab fa-whatsapp"></i> <span>WhatsApp</span>
+          <li><a href="#inicio" class="active"><i class="fas fa-home" aria-hidden="true"></i> Início</a></li>
+          <li><a href="#servicos"><i class="fas fa-cogs" aria-hidden="true"></i> Serviços</a></li>
+          <li><a href="#solicitar"><i class="fas fa-headset" aria-hidden="true"></i> Solicitar</a></li>
+          <li><a href="https://wa.me/5584994291197" target="_blank" rel="noopener noreferrer" class="whatsapp-nav">
+            <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
           </a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="inicio">
-    <div class="hero-content">
-      <h1>Suporte em TI para Você e sua Empresa</h1>
-      <p>Atendimento especializado para empresas e pessoas físicas. Soluções rápidas para seu computador, notebook ou infraestrutura corporativa.</p>
-      
-      <div class="hero-stats">
-        <div class="stat-item">
-          <span class="stat-number">100+</span>
-          <span class="stat-label">Clientes Atendidos</span>
-        </div>
-        <div class="stat-item">
-          <span class="stat-number">24/7</span>
-          <span class="stat-label">Suporte Disponível</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Serviços -->
-  <section class="section" id="servicos">
-    <div class="container">
-      <div class="section-title">
-        <h2>Serviços de TI</h2>
-        <p>Soluções para todos os públicos - de problemas domésticos a demandas corporativas</p>
-      </div>
-
-      <div class="servicos-grid">
-        <div class="card" onclick="preencherServico('Suporte Técnico')">
-          <div class="card-icon">
-            <i class="fas fa-tools"></i>
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <h1 id="hero-title">
+          Suporte em TI para <span class="highlight">Você</span> e sua <span class="highlight">Empresa</span>
+        </h1>
+        <p>Atendimento especializado para empresas e pessoas físicas. Soluções rápidas para seu computador, notebook ou infraestrutura corporativa em Natal e região.</p>
+        
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">100+</span>
+            <span class="stat-label">Clientes Atendidos</span>
           </div>
-          <h3>Suporte Técnico</h3>
-          <p>Para seu computador pessoal ou da empresa: formatação, limpeza, remoção de vírus, instalação de programas e muito mais.</p>
-          <div class="card-footer">
-            <span class="card-badge">PC & Notebook</span>
-            <i class="fas fa-arrow-right card-arrow"></i>
+          <div class="stat-item">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Suporte Disponível</span>
           </div>
-        </div>
-
-        <div class="card" onclick="preencherServico('Impressoras')">
-          <div class="card-icon">
-            <i class="fas fa-print"></i>
-          </div>
-          <h3>Impressoras</h3>
-          <p>Configuração de impressoras domésticas e corporativas, instalação de drivers, compartilhamento em rede e solução de falhas.</p>
-          <div class="card-footer">
-            <span class="card-badge">Configuração</span>
-            <i class="fas fa-arrow-right card-arrow"></i>
-          </div>
-        </div>
-
-        <div class="card" onclick="preencherServico('Backups')">
-          <div class="card-icon">
-            <i class="fas fa-database"></i>
-          </div>
-          <h3>Backup de Dados</h3>
-          <p>Não perca suas fotos, documentos e arquivos importantes. Soluções de backup para uso pessoal e corporativo.</p>
-          <div class="card-footer">
-            <span class="card-badge">Proteção</span>
-            <i class="fas fa-arrow-right card-arrow"></i>
-          </div>
-        </div>
-
-        <div class="card" onclick="preencherServico('Consultoria de TI')">
-          <div class="card-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <h3>Consultoria</h3>
-          <p>Para empresas: análise de infraestrutura, segurança da informação e otimização de processos. Para usuários: orientação na compra do PC ideal.</p>
-          <div class="card-footer">
-            <span class="card-badge">Personalizado</span>
-            <i class="fas fa-arrow-right card-arrow"></i>
-          </div>
-        </div>
-
-        <div class="card" onclick="preencherServico('Montagem e Upgrade')">
-          <div class="card-icon">
-            <i class="fas fa-desktop"></i>
-          </div>
-          <h3>Upgrade e Montagem</h3>
-          <p>Deixar seu PC mais rápido? Upgrades de SSD, memória RAM. Quer um computador novo? Montagem sob medida para seu uso.</p>
-          <div class="card-footer">
-            <span class="card-badge">Performance</span>
-            <i class="fas fa-arrow-right card-arrow"></i>
+          <div class="stat-item">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Satisfação</span>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Formulário -->
-  <section class="section" id="solicitar">
-    <div class="container">
-      <div class="section-title">
-        <h2>Solicitar Atendimento</h2>
-        <p>Preencha o formulário abaixo - seja para uso pessoal ou empresarial, retornarei o mais rápido possível</p>
-      </div>
+    <!-- Serviços -->
+    <section class="section" id="servicos" aria-labelledby="servicos-title">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="servicos-title">Serviços Especializados</h2>
+          <p>Soluções personalizadas para todos os públicos - de problemas domésticos a demandas corporativas complexas</p>
+        </div>
 
-      <div class="form-wrapper">
-        <form id="atendimentoForm">
-          <div class="form-grid">
-            <div class="form-group">
-              <label for="nome"><i class="fas fa-user"></i> Nome Completo*</label>
-              <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+        <div class="servicos-grid">
+          <div class="card" onclick="preencherServico('Suporte Técnico')" role="button" tabindex="0" onkeypress="if(event.key==='Enter'||event.key===' ') preencherServico('Suporte Técnico')" aria-label="Solicitar Suporte Técnico">
+            <div class="card-icon">
+              <i class="fas fa-tools" aria-hidden="true"></i>
             </div>
-
-            <div class="form-group">
-              <label for="telefone"><i class="fas fa-phone"></i> Telefone / WhatsApp*</label>
-              <input type="tel" id="telefone" name="telefone" placeholder="(84) 99429-1197" required>
-            </div>
-
-            <div class="form-group">
-              <label for="email"><i class="fas fa-envelope"></i> E-mail*</label>
-              <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required>
-            </div>
-
-            <div class="form-group">
-              <label for="tipo_cliente"><i class="fas fa-user-tag"></i> Tipo de Atendimento</label>
-              <select id="tipo_cliente" name="tipo_cliente">
-                <option value="pessoa_fisica" selected>Pessoa Física (Uso Pessoal)</option>
-                <option value="pessoa_juridica">Pessoa Jurídica (Empresa)</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="servico"><i class="fas fa-cogs"></i> Tipo de Serviço*</label>
-              <select id="servico" name="servico" required>
-                <option value="">Selecione o serviço</option>
-                <option>Suporte Técnico</option>
-                <option>Impressoras</option>
-                <option>Backups</option>
-                <option>Consultoria de TI</option>
-                <option>Montagem e Upgrade</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="urgencia"><i class="fas fa-exclamation-circle"></i> Nível de Urgência</label>
-              <select id="urgencia" name="urgencia">
-                <option value="baixa">Baixa - Pode aguardar</option>
-                <option value="media" selected>Média - Próximos dias</option>
-                <option value="alta">Alta - Necessário hoje</option>
-                <option value="critica">Crítica - Equipamento parado</option>
-              </select>
-            </div>
-
-            <div class="form-group full-width">
-              <label for="mensagem"><i class="fas fa-comment-alt"></i> Descreva seu problema ou necessidade</label>
-              <textarea id="mensagem" name="mensagem" placeholder="Ex: Meu notebook está lento, não liga, preciso de um PC para jogos/trabalho, empresa precisa de suporte na rede..."></textarea>
+            <h3>Suporte Técnico</h3>
+            <p>Para seu computador pessoal ou da empresa: formatação, limpeza, remoção de vírus, instalação de programas e muito mais.</p>
+            <div class="card-footer">
+              <span class="card-badge">PC & Notebook</span>
+              <i class="fas fa-arrow-right card-arrow" aria-hidden="true"></i>
             </div>
           </div>
 
-          <div class="form-group mt-3">
-            <button type="submit" class="btn">
-              <i class="fas fa-paper-plane"></i> Solicitar Atendimento
-            </button>
+          <div class="card" onclick="preencherServico('Impressoras')" role="button" tabindex="0" onkeypress="if(event.key==='Enter'||event.key===' ') preencherServico('Impressoras')" aria-label="Solicitar serviço de Impressoras">
+            <div class="card-icon">
+              <i class="fas fa-print" aria-hidden="true"></i>
+            </div>
+            <h3>Impressoras</h3>
+            <p>Configuração de impressoras domésticas e corporativas, instalação de drivers, compartilhamento em rede e solução de falhas.</p>
+            <div class="card-footer">
+              <span class="card-badge">Configuração</span>
+              <i class="fas fa-arrow-right card-arrow" aria-hidden="true"></i>
+            </div>
           </div>
-        </form>
+
+          <div class="card" onclick="preencherServico('Backups')" role="button" tabindex="0" onkeypress="if(event.key==='Enter'||event.key===' ') preencherServico('Backups')" aria-label="Solicitar serviço de Backups">
+            <div class="card-icon">
+              <i class="fas fa-database" aria-hidden="true"></i>
+            </div>
+            <h3>Backup de Dados</h3>
+            <p>Não perca suas fotos, documentos e arquivos importantes. Soluções de backup para uso pessoal e corporativo.</p>
+            <div class="card-footer">
+              <span class="card-badge">Proteção</span>
+              <i class="fas fa-arrow-right card-arrow" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <div class="card" onclick="preencherServico('Consultoria de TI')" role="button" tabindex="0" onkeypress="if(event.key==='Enter'||event.key===' ') preencherServico('Consultoria de TI')" aria-label="Solicitar Consultoria de TI">
+            <div class="card-icon">
+              <i class="fas fa-chart-line" aria-hidden="true"></i>
+            </div>
+            <h3>Consultoria</h3>
+            <p>Para empresas: análise de infraestrutura, segurança da informação e otimização de processos. Para usuários: orientação na compra do PC ideal.</p>
+            <div class="card-footer">
+              <span class="card-badge">Personalizado</span>
+              <i class="fas fa-arrow-right card-arrow" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <div class="card" onclick="preencherServico('Montagem e Upgrade')" role="button" tabindex="0" onkeypress="if(event.key==='Enter'||event.key===' ') preencherServico('Montagem e Upgrade')" aria-label="Solicitar Montagem e Upgrade">
+            <div class="card-icon">
+              <i class="fas fa-desktop" aria-hidden="true"></i>
+            </div>
+            <h3>Upgrade e Montagem</h3>
+            <p>Deixar seu PC mais rápido? Upgrades de SSD, memória RAM. Quer um computador novo? Montagem sob medida para seu uso.</p>
+            <div class="card-footer">
+              <span class="card-badge">Performance</span>
+              <i class="fas fa-arrow-right card-arrow" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- Formulário -->
+    <section class="section" id="solicitar" aria-labelledby="form-title">
+      <div class="container">
+        <div class="section-title">
+          <h2 id="form-title">Solicitar Atendimento</h2>
+          <p>Preencha o formulário abaixo - seja para uso pessoal ou empresarial, retornarei o mais rápido possível</p>
+        </div>
+
+        <div class="form-wrapper">
+          <form id="atendimentoForm" novalidate>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="nome">
+                  <i class="fas fa-user" aria-hidden="true"></i>
+                  Nome Completo <span class="required" aria-hidden="true">*</span>
+                </label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required aria-required="true">
+              </div>
+
+              <div class="form-group">
+                <label for="telefone">
+                  <i class="fas fa-phone" aria-hidden="true"></i>
+                  Telefone / WhatsApp <span class="required" aria-hidden="true">*</span>
+                </label>
+                <input type="tel" id="telefone" name="telefone" placeholder="(84) 99429-1197" required aria-required="true">
+              </div>
+
+              <div class="form-group">
+                <label for="email">
+                  <i class="fas fa-envelope" aria-hidden="true"></i>
+                  E-mail <span class="required" aria-hidden="true">*</span>
+                </label>
+                <input type="email" id="email" name="email" placeholder="seu.email@exemplo.com" required aria-required="true">
+              </div>
+
+              <div class="form-group">
+                <label for="tipo_cliente">
+                  <i class="fas fa-user-tag" aria-hidden="true"></i>
+                  Tipo de Atendimento
+                </label>
+                <select id="tipo_cliente" name="tipo_cliente">
+                  <option value="pessoa_fisica" selected>Pessoa Física (Uso Pessoal)</option>
+                  <option value="pessoa_juridica">Pessoa Jurídica (Empresa)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="servico">
+                  <i class="fas fa-cogs" aria-hidden="true"></i>
+                  Tipo de Serviço <span class="required" aria-hidden="true">*</span>
+                </label>
+                <select id="servico" name="servico" required aria-required="true">
+                  <option value="">Selecione o serviço desejado</option>
+                  <option value="Suporte Técnico">Suporte Técnico</option>
+                  <option value="Impressoras">Impressoras</option>
+                  <option value="Backups">Backups</option>
+                  <option value="Consultoria de TI">Consultoria de TI</option>
+                  <option value="Montagem e Upgrade">Montagem e Upgrade</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="urgencia">
+                  <i class="fas fa-exclamation-circle" aria-hidden="true"></i>
+                  Nível de Urgência
+                </label>
+                <select id="urgencia" name="urgencia">
+                  <option value="baixa">Baixa - Pode aguardar</option>
+                  <option value="media" selected>Média - Próximos dias</option>
+                  <option value="alta">Alta - Necessário hoje</option>
+                  <option value="critica">Crítica - Equipamento parado</option>
+                </select>
+              </div>
+
+              <div class="form-group full-width">
+                <label for="mensagem">
+                  <i class="fas fa-comment-alt" aria-hidden="true"></i>
+                  Descreva seu problema ou necessidade
+                </label>
+                <textarea id="mensagem" name="mensagem" placeholder="Ex: Meu notebook está lento, não liga, preciso de um PC para jogos/trabalho, empresa precisa de suporte na rede..."></textarea>
+              </div>
+            </div>
+
+            <div class="form-group full-width" style="margin-top: 1.5rem;">
+              <button type="submit" class="btn" id="submitBtn">
+                <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                Solicitar Atendimento
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- Footer -->
-  <footer>
+  <footer aria-labelledby="footer-title">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-section">
-          <h3>Breno Nascimento</h3>
-          <p>Atendimento especializado em TI para todos os públicos. Soluções rápidas e personalizadas para seu computador, notebook ou empresa.</p>
+          <h3 id="footer-title">Breno Nascimento</h3>
+          <p>Atendimento especializado em TI para todos os públicos. Soluções rápidas e personalizadas para seu computador, notebook ou empresa em Natal e região.</p>
           <div class="social-links">
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://wa.me/5584994291197" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+            <a href="https://wa.me/5584994291197" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+            <a href="mailto:antoniobreno500@gmail.com" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
           </div>
         </div>
         
         <div class="footer-section">
           <h3>Contato</h3>
           <ul class="contact-info">
-            <li><i class="fab fa-whatsapp"></i> <a href="https://wa.me/5584994291197">(84) 99429-1197</a></li>
-            <li><i class="fas fa-envelope"></i> <a href="mailto:antoniobreno500@gmail.com">antoniobreno500@gmail.com</a></li>
-            <li><i class="fas fa-map-marker-alt"></i> Natal, RN</li>
-            <li><i class="fas fa-clock"></i> Seg-Sex: 8h às 18h | Sáb: 9h às 13h</li>
+            <li>
+              <i class="fab fa-whatsapp" aria-hidden="true"></i>
+              <a href="https://wa.me/5584994291197" target="_blank" rel="noopener noreferrer">(84) 99429-1197</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope" aria-hidden="true"></i>
+              <a href="mailto:antoniobreno500@gmail.com">antoniobreno500@gmail.com</a>
+            </li>
+            <li>
+              <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+              Natal, RN
+            </li>
+            <li>
+              <i class="fas fa-clock" aria-hidden="true"></i>
+              Seg-Sex: 8h às 18h | Sáb: 9h às 13h
+            </li>
           </ul>
         </div>
         
         <div class="footer-section">
           <h3>Links Rápidos</h3>
           <ul class="contact-info">
-            <li><i class="fas fa-chevron-right"></i> <a href="#servicos">Serviços</a></li>
-            <li><i class="fas fa-chevron-right"></i> <a href="#solicitar">Solicitar Atendimento</a></li>
-            <li><i class="fas fa-chevron-right"></i> <a href="#">Sobre</a></li>
-            <li><i class="fas fa-chevron-right"></i> <a href="#">Política de Privacidade</a></li>
+            <li>
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+              <a href="#servicos">Serviços</a>
+            </li>
+            <li>
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+              <a href="#solicitar">Solicitar Atendimento</a>
+            </li>
+            <li>
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+              <a href="#sobre">Sobre</a>
+            </li>
+            <li>
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+              <a href="#privacidade">Política de Privacidade</a>
+            </li>
           </ul>
         </div>
       </div>
       
       <div class="copyright">
-        <p>&copy; 2024 Breno Nascimento - Todos os direitos reservados</p>
+        <p>&copy; 2024 Breno Nascimento - Consultoria em TI. Todos os direitos reservados.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem;">Desenvolvido com <i class="fas fa-heart" style="color: var(--accent);" aria-hidden="true"></i> em Natal/RN</p>
       </div>
     </div>
   </footer>
 
   <!-- WhatsApp Floating Button -->
-  <a href="https://wa.me/5584994291197" target="_blank" class="whatsapp-float" aria-label="WhatsApp">
-    <i class="fab fa-whatsapp"></i>
+  <a href="https://wa.me/5584994291197" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Contato via WhatsApp">
+    <i class="fab fa-whatsapp" aria-hidden="true"></i>
   </a>
 
   <script>
-    // Menu Mobile
-    const menuToggle = document.getElementById('menuToggle');
-    const mainNav = document.getElementById('mainNav');
-    
-    if (menuToggle) {
-      menuToggle.addEventListener('click', () => {
-        mainNav.classList.toggle('active');
-        menuToggle.innerHTML = mainNav.classList.contains('active') 
-          ? '<i class="fas fa-times"></i>' 
-          : '<i class="fas fa-bars"></i>';
-      });
+    (function() {
+      'use strict';
 
-      // Fechar menu ao clicar em link
-      document.querySelectorAll('#mainNav a').forEach(link => {
-        link.addEventListener('click', () => {
-          mainNav.classList.remove('active');
-          menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+      // Elementos DOM
+      const menuToggle = document.getElementById('menuToggle');
+      const mainNav = document.getElementById('mainNav');
+      const form = document.getElementById('atendimentoForm');
+      const submitBtn = document.getElementById('submitBtn');
+
+      // ===== MENU MOBILE =====
+      if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+          const isActive = mainNav.classList.toggle('active');
+          menuToggle.setAttribute('aria-expanded', isActive);
+          menuToggle.innerHTML = isActive 
+            ? '<i class="fas fa-times" aria-hidden="true"></i>' 
+            : '<i class="fas fa-bars" aria-hidden="true"></i>';
         });
-      });
-    }
 
-    function preencherServico(servico) {
-      const selectServico = document.getElementById('servico');
-      const mensagem = document.getElementById('mensagem');
+        // Fechar menu ao clicar em link
+        document.querySelectorAll('#mainNav a').forEach(link => {
+          link.addEventListener('click', () => {
+            mainNav.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+          });
+        });
 
-      selectServico.value = servico;
+        // Fechar menu ao clicar fora
+        document.addEventListener('click', (e) => {
+          if (!mainNav.contains(e.target) && !menuToggle.contains(e.target) && mainNav.classList.contains('active')) {
+            mainNav.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.innerHTML = '<i class="fas fa-bars" aria-hidden="true"></i>';
+          }
+        });
+      }
 
-      const templates = {
-        'Montagem e Upgrade': `Montagem e Upgrade:
+      // ===== FUNÇÃO PARA PREENCHER SERVIÇO =====
+      window.preencherServico = function(servico) {
+        const selectServico = document.getElementById('servico');
+        const mensagem = document.getElementById('mensagem');
+
+        if (!selectServico || !mensagem) return;
+
+        selectServico.value = servico;
+
+        const templates = {
+          'Montagem e Upgrade': `**Montagem e Upgrade**
 - Uso do computador (jogos/trabalho/estudo):
 - Peças que já possui:
 - Orçamento pretendido:
 - Precisa de ajuda para escolher as peças?`,
-        
-        'Suporte Técnico': `Suporte Técnico:
+          
+          'Suporte Técnico': `**Suporte Técnico**
 - Qual problema está acontecendo?
 - O equipamento liga?
 - Sistema operacional (Windows/Mac/Linux):
 - Mensagem de erro (se houver):`,
-        
-        'Impressoras': `Impressoras:
+          
+          'Impressoras': `**Impressoras**
 - Marca e modelo:
 - Qual problema apresenta?
 - Conexão (USB/Wi-Fi/Rede):
 - Mensagem de erro (se houver):`,
-        
-        'Backups': `Backup de Dados:
+          
+          'Backups': `**Backup de Dados**
 - O que precisa recuperar?
 - É para uso pessoal ou empresarial?
 - Volume aproximado de dados:
 - Já possui backup anterior?`,
-        
-        'Consultoria de TI': `Consultoria:
+          
+          'Consultoria de TI': `**Consultoria**
 - Para empresa ou uso pessoal?
 - Qual sua principal necessidade?
 - Quantidade de usuários (se empresa):
 - Descreva sua situação atual:`
+        };
+
+        mensagem.value = templates[servico] || '';
+
+        // Scroll suave para o formulário
+        document.getElementById('solicitar').scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+        
+        setTimeout(() => mensagem.focus(), 500);
       };
 
-      mensagem.value = templates[servico] || '';
-
-      document.getElementById('solicitar').scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-      
-      setTimeout(() => mensagem.focus(), 500);
-    }
-
-    // Máscara de telefone
-    const tel = document.getElementById('telefone');
-    if (tel) {
-      tel.addEventListener('input', function () {
-        let v = this.value.replace(/\D/g, '');
-        if (v.length > 11) v = v.substring(0, 11);
-        
-        if (v.length > 10) {
-          v = v.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
-        } else if (v.length > 6) {
-          v = v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
-        } else if (v.length > 2) {
-          v = v.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
-        } else if (v.length > 0) {
-          v = v.replace(/^(\d*)/, '($1');
-        }
-        this.value = v;
-      });
-    }
-
-    // Submissão do formulário
-    document.getElementById('atendimentoForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      
-      const nome = document.getElementById('nome')?.value;
-      const telefone = document.getElementById('telefone')?.value;
-      const servico = document.getElementById('servico')?.value;
-      const mensagem = document.getElementById('mensagem')?.value;
-      const email = document.getElementById('email')?.value;
-      const tipo_clienteSelect = document.getElementById('tipo_cliente');
-      const tipo_cliente = tipo_clienteSelect?.options[tipo_clienteSelect.selectedIndex]?.text || 'Pessoa Física';
-      const urgenciaSelect = document.getElementById('urgencia');
-      const urgencia = urgenciaSelect?.options[urgenciaSelect.selectedIndex]?.text || 'Média';
-      
-      if (!nome || !telefone || !servico) {
-        alert('Por favor, preencha os campos obrigatórios (Nome, Telefone e Serviço).');
-        return;
+      // ===== MÁSCARA DE TELEFONE =====
+      const tel = document.getElementById('telefone');
+      if (tel) {
+        tel.addEventListener('input', function() {
+          let v = this.value.replace(/\D/g, '');
+          if (v.length > 11) v = v.substring(0, 11);
+          
+          if (v.length > 10) {
+            v = v.replace(/^(\d{2})(\d{5})(\d{4}).*/, '($1) $2-$3');
+          } else if (v.length > 6) {
+            v = v.replace(/^(\d{2})(\d{4})(\d{0,4}).*/, '($1) $2-$3');
+          } else if (v.length > 2) {
+            v = v.replace(/^(\d{2})(\d{0,5})/, '($1) $2');
+          } else if (v.length > 0) {
+            v = v.replace(/^(\d*)/, '($1');
+          }
+          this.value = v;
+        });
       }
-      
-      const textoWhatsApp = `*Nova Solicitação de Atendimento - TI*
+
+      // ===== FUNÇÃO PARA MOSTRAR TOAST =====
+      function showToast(message, type = 'success') {
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.setAttribute('role', 'alert');
+        toast.innerHTML = `
+          <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}" aria-hidden="true"></i>
+          <span>${message}</span>
+        `;
+        
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+          toast.classList.add('fade-out');
+          setTimeout(() => toast.remove(), 300);
+        }, 3000);
+      }
+
+      // ===== VALIDAÇÃO DE EMAIL =====
+      function isValidEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+
+      // ===== SUBMISSÃO DO FORMULÁRIO =====
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          // Obter valores
+          const nome = document.getElementById('nome')?.value.trim();
+          const telefone = document.getElementById('telefone')?.value.trim();
+          const email = document.getElementById('email')?.value.trim();
+          const servico = document.getElementById('servico')?.value;
+          const mensagem = document.getElementById('mensagem')?.value.trim();
+          const tipo_clienteSelect = document.getElementById('tipo_cliente');
+          const tipo_cliente = tipo_clienteSelect?.options[tipo_clienteSelect.selectedIndex]?.text || 'Pessoa Física';
+          const urgenciaSelect = document.getElementById('urgencia');
+          const urgencia = urgenciaSelect?.options[urgenciaSelect.selectedIndex]?.text || 'Média';
+          
+          // Validações
+          if (!nome) {
+            showToast('Por favor, preencha seu nome.', 'error');
+            document.getElementById('nome').focus();
+            return;
+          }
+          
+          if (!telefone) {
+            showToast('Por favor, preencha seu telefone.', 'error');
+            document.getElementById('telefone').focus();
+            return;
+          }
+          
+          if (!email) {
+            showToast('Por favor, preencha seu e-mail.', 'error');
+            document.getElementById('email').focus();
+            return;
+          }
+          
+          if (!isValidEmail(email)) {
+            showToast('Por favor, insira um e-mail válido.', 'error');
+            document.getElementById('email').focus();
+            return;
+          }
+          
+          if (!servico) {
+            showToast('Por favor, selecione o tipo de serviço.', 'error');
+            document.getElementById('servico').focus();
+            return;
+          }
+          
+          // Mostrar loading
+          submitBtn.classList.add('loading');
+          submitBtn.disabled = true;
+          
+          // Construir mensagem
+          const textoWhatsApp = `*Nova Solicitação de Atendimento - TI*
 
 *Nome:* ${nome}
 *Telefone:* ${telefone}
-*E-mail:* ${email || 'Não informado'}
+*E-mail:* ${email}
 *Tipo:* ${tipo_cliente}
 *Serviço:* ${servico}
 *Urgência:* ${urgencia}
 
 *Mensagem:*
-${mensagem || 'Não informada'}`;
-      
-      const mensagemCodificada = encodeURIComponent(textoWhatsApp);
-      const numeroWhatsApp = '5584994291197';
-      const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
-      
-      window.open(linkWhatsApp, '_blank');
-      alert('Redirecionando para WhatsApp...');
-    });
+${mensagem || 'Não informada'}
 
-    // Active link no scroll
-    window.addEventListener('scroll', () => {
-      const sections = document.querySelectorAll('section[id]');
-      const scrollY = window.pageYOffset;
+*Enviado em:* ${new Date().toLocaleString('pt-BR')}`;
+          
+          const mensagemCodificada = encodeURIComponent(textoWhatsApp);
+          const numeroWhatsApp = '5584994291197';
+          const linkWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${mensagemCodificada}`;
+          
+          // Simular delay para mostrar loading
+          setTimeout(() => {
+            window.open(linkWhatsApp, '_blank', 'noopener,noreferrer');
+            showToast('Redirecionando para WhatsApp...', 'success');
+            
+            // Remover loading
+            submitBtn.classList.remove('loading');
+            submitBtn.disabled = false;
+          }, 500);
+        });
+      }
 
-      sections.forEach(section => {
-        const sectionHeight = section.offsetHeight;
-        const sectionTop = section.offsetTop - 100;
-        const sectionId = section.getAttribute('id');
-        const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
-        
-        if (navLink && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-          navLink.classList.add('active');
-        } else if (navLink) {
-          navLink.classList.remove('active');
-        }
+      // ===== ACTIVE LINK NO SCROLL =====
+      function updateActiveLink() {
+        const sections = document.querySelectorAll('section[id]');
+        const scrollY = window.pageYOffset;
+
+        sections.forEach(section => {
+          const sectionHeight = section.offsetHeight;
+          const sectionTop = section.offsetTop - 100;
+          const sectionId = section.getAttribute('id');
+          const navLink = document.querySelector(`nav a[href="#${sectionId}"]`);
+          
+          if (navLink && scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+            navLink.classList.add('active');
+          } else if (navLink) {
+            navLink.classList.remove('active');
+          }
+        });
+      }
+
+      window.addEventListener('scroll', updateActiveLink);
+      window.addEventListener('load', updateActiveLink);
+
+      // ===== SCROLL SUAVE PARA LINKS INTERNOS =====
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (href === '#') return;
+          
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
       });
-    });
+
+      // ===== DETECTAR CONEXÃO =====
+      window.addEventListener('offline', () => {
+        showToast('Você está offline. Verifique sua conexão.', 'error');
+      });
+
+      window.addEventListener('online', () => {
+        showToast('Conexão restabelecida!', 'success');
+      });
+
+    })();
   </script>
 </body>
 </html>
