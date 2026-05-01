@@ -1,1069 +1,1000 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Breno Nascimento | Consultoria & Desenvolvimento em TI</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
-  <meta name="description" content="Consultoria especializada em TI, Desenvolvimento de Sites e Banco de Dados para empresas e pessoas físicas em Natal/RN">
-  <meta name="keywords" content="consultoria TI, desenvolvimento web, banco de dados, suporte técnico, manutenção computadores, redes, Natal RN">
-  <meta name="author" content="Breno Nascimento">
-  <meta property="og:title" content="Breno Nascimento | Consultoria & Dev em TI">
-  <meta property="og:description" content="Suporte técnico, criação de sites e soluções em banco de dados">
-  <meta property="og:type" content="website">
-
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
-
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --navy: #05101F;
-      --navy-mid: #0B1E35;
-      --navy-soft: #122744;
-      --gold: #C9922A;
-      --gold-light: #E8B85A;
-      --gold-pale: #F5DFA8;
-      --cream: #FAF7F2;
-      --white: #FFFFFF;
-      --muted: #8899AA;
-      --border: rgba(201,146,42,0.18);
-      --r: 8px;
-      --r-lg: 16px;
-      --header-h: 72px;
-      --ease: cubic-bezier(.4,0,.2,1);
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--cream);
-      color: var(--navy);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-    }
-
-    /* ── SCROLLBAR ── */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--cream); }
-    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 4px; }
-
-    /* ── UTILS ── */
-    .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
-    .sr-only { position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0; }
-
-    /* ── HEADER ── */
-    header {
-      position: sticky; top: 0; z-index: 100;
-      height: var(--header-h);
-      background: rgba(5,16,31,.97);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .hd-inner {
-      display: flex; align-items: center; justify-content: space-between;
-      height: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;
-    }
-
-    .logo { display: flex; align-items: center; gap: .75rem; text-decoration: none; }
-    .logo-mark {
-      width: 40px; height: 40px; border-radius: var(--r);
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      display: flex; align-items: center; justify-content: center;
-    }
-    .logo-mark i { color: var(--navy); font-size: 1.1rem; }
-    .logo-text { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.05rem; color: var(--white); line-height: 1.2; }
-    .logo-text span { display: block; font-size: .6rem; font-weight: 500; letter-spacing: 2px; color: var(--gold-light); font-family: 'DM Sans', sans-serif; }
-
-    .menu-btn {
-      display: none; background: none; border: none; color: var(--white);
-      font-size: 1.4rem; cursor: pointer; padding: .5rem;
-      width: 44px; height: 44px; border-radius: var(--r); transition: background .2s;
-    }
-    .menu-btn:hover { background: rgba(255,255,255,.08); }
-
-    nav ul { display: flex; list-style: none; gap: .25rem; }
-    nav a {
-      color: rgba(255,255,255,.65); text-decoration: none;
-      font-size: .88rem; font-weight: 500; letter-spacing: .3px;
-      padding: .45rem .9rem; border-radius: var(--r);
-      display: flex; align-items: center; gap: .4rem;
-      transition: all .2s var(--ease);
-    }
-    nav a:hover, nav a.active { color: var(--white); background: rgba(255,255,255,.08); }
-    nav a.active { color: var(--gold-light); }
-
-    .nav-cta {
-      background: linear-gradient(135deg, var(--gold), var(--gold-light));
-      color: var(--navy) !important; font-weight: 700 !important;
-    }
-    .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 20px rgba(201,146,42,.35); }
-
-    /* ── HERO ── */
-    .hero {
-      background: var(--navy);
-      padding: 6rem 0 5rem;
-      position: relative; overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(ellipse 80% 60% at 10% 50%, rgba(201,146,42,.06) 0%, transparent 60%),
-        radial-gradient(ellipse 60% 80% at 85% 20%, rgba(201,146,42,.05) 0%, transparent 55%);
-    }
-
-    /* grid pattern */
-    .hero-grid {
-      position: absolute; inset: 0; overflow: hidden; opacity: .3;
-    }
-    .hero-grid::before {
-      content: '';
-      position: absolute; inset: -50%;
-      background-image:
-        linear-gradient(rgba(201,146,42,.08) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(201,146,42,.08) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    /* floating shapes */
-    .shape {
-      position: absolute; border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,146,42,.12), transparent);
-      animation: drift 8s ease-in-out infinite;
-    }
-    .shape-1 { width: 400px; height: 400px; top: -100px; right: -100px; animation-duration: 9s; }
-    .shape-2 { width: 200px; height: 200px; bottom: -50px; left: 10%; animation-duration: 11s; animation-delay: -3s; }
-
-    @keyframes drift {
-      0%, 100% { transform: translate(0,0) scale(1); }
-      50% { transform: translate(20px,-20px) scale(1.05); }
-    }
-
-    .hero-inner {
-      position: relative; z-index: 2;
-      max-width: 820px; margin: 0 auto; text-align: center; padding: 0 1.5rem;
-    }
-
-    .hero-tag {
-      display: inline-flex; align-items: center; gap: .5rem;
-      background: rgba(201,146,42,.12); border: 1px solid var(--border);
-      color: var(--gold-light); padding: .4rem 1rem; border-radius: 50px;
-      font-size: .8rem; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;
-      margin-bottom: 2rem;
-      animation: fadeUp .7s var(--ease) both;
-    }
-    .hero-tag i { font-size: .7rem; }
-
-    .hero h1 {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2.4rem, 6vw, 4rem);
-      font-weight: 800; line-height: 1.12; letter-spacing: -.03em;
-      color: var(--white); margin-bottom: 1.5rem;
-      animation: fadeUp .7s .1s var(--ease) both;
-    }
-
-    .hero h1 em {
-      font-style: normal;
-      background: linear-gradient(135deg, var(--gold), var(--gold-pale));
-      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .hero-sub {
-      font-size: 1.1rem; color: rgba(255,255,255,.7);
-      max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.7;
-      animation: fadeUp .7s .2s var(--ease) both;
-    }
-
-    .hero-pills {
-      display: flex; flex-wrap: wrap; gap: .75rem; justify-content: center;
-      margin-bottom: 3rem;
-      animation: fadeUp .7s .3s var(--ease) both;
-    }
-
-    .pill {
-      display: flex; align-items: center; gap: .5rem;
-      background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.1);
-      color: rgba(255,255,255,.8); padding: .5rem 1rem; border-radius: 50px;
-      font-size: .85rem; font-weight: 500;
-    }
-    .pill i { color: var(--gold); font-size: .8rem; }
-
-    .hero-stats {
-      display: flex; justify-content: center; gap: clamp(2.5rem, 8vw, 5rem);
-      flex-wrap: wrap; border-top: 1px solid rgba(255,255,255,.08);
-      padding-top: 2.5rem;
-      animation: fadeUp .7s .4s var(--ease) both;
-    }
-
-    .stat { text-align: center; }
-    .stat-n {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(2rem, 5vw, 2.8rem);
-      font-weight: 800; color: var(--gold-light);
-      display: block; line-height: 1;
-    }
-    .stat-l {
-      font-size: .78rem; color: rgba(255,255,255,.55);
-      text-transform: uppercase; letter-spacing: 1px; margin-top: .35rem;
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ── SECTION BASE ── */
-    .section { padding: 5rem 0; }
-
-    .sec-label {
-      display: inline-flex; align-items: center; gap: .5rem;
-      color: var(--gold); font-size: .75rem; font-weight: 700;
-      letter-spacing: 2px; text-transform: uppercase; margin-bottom: 1rem;
-    }
-    .sec-label::before {
-      content: ''; display: block; width: 24px; height: 2px;
-      background: var(--gold); border-radius: 1px;
-    }
-
-    .sec-head {
-      font-family: 'Syne', sans-serif;
-      font-size: clamp(1.8rem, 4vw, 2.4rem);
-      font-weight: 800; color: var(--navy); letter-spacing: -.02em;
-      margin-bottom: 1rem;
-    }
-
-    .sec-sub { color: #5A6B7C; font-size: 1rem; max-width: 560px; line-height: 1.7; }
-
-    .sec-header { margin-bottom: 3rem; }
-
-    /* ── SERVICES ── */
-    #servicos { background: var(--cream); }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .svc-card {
-      background: var(--white);
-      border: 1px solid rgba(0,0,0,.07);
-      border-radius: var(--r-lg);
-      padding: 2rem;
-      cursor: pointer;
-      transition: all .3s var(--ease);
-      position: relative; overflow: hidden;
-      display: flex; flex-direction: column;
-    }
-
-    .svc-card::before {
-      content: '';
-      position: absolute; left: 0; top: 0; bottom: 0;
-      width: 4px;
-      background: linear-gradient(180deg, var(--gold), var(--gold-light));
-      border-radius: 0 2px 2px 0;
-      transform: scaleY(0); transform-origin: top;
-      transition: transform .3s var(--ease);
-    }
-
-    .svc-card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(5,16,31,.1); border-color: rgba(201,146,42,.3); }
-    .svc-card:hover::before { transform: scaleY(1); }
-    .svc-card:active { transform: scale(.98); }
-
-    .svc-icon {
-      width: 52px; height: 52px; border-radius: 12px;
-      background: rgba(201,146,42,.1);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.25rem; transition: all .3s;
-    }
-    .svc-icon i { font-size: 1.4rem; color: var(--gold); transition: .3s; }
-    .svc-card:hover .svc-icon { background: var(--gold); }
-    .svc-card:hover .svc-icon i { color: var(--white); }
-
-    .svc-card h3 {
-      font-family: 'Syne', sans-serif;
-      font-size: 1.15rem; font-weight: 700; color: var(--navy);
-      margin-bottom: .6rem;
-    }
-    .svc-card p { color: #5A6B7C; font-size: .9rem; line-height: 1.65; flex: 1; }
-
-    .svc-foot {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-top: 1.5rem; padding-top: 1.25rem;
-      border-top: 1px solid rgba(0,0,0,.06);
-    }
-
-    .svc-tag {
-      background: rgba(201,146,42,.1); color: var(--gold);
-      font-size: .72rem; font-weight: 700; letter-spacing: .5px;
-      text-transform: uppercase; padding: .3rem .75rem; border-radius: 50px;
-    }
-
-    .svc-arrow {
-      width: 30px; height: 30px; border-radius: 50%;
-      background: rgba(201,146,42,.1);
-      display: flex; align-items: center; justify-content: center;
-      color: var(--gold); font-size: .85rem; transition: all .3s;
-    }
-    .svc-card:hover .svc-arrow { background: var(--gold); color: var(--white); transform: rotate(-45deg); }
-
-    /* FEATURED card (sites + db) */
-    .svc-featured {
-      background: var(--navy);
-      border-color: var(--border);
-    }
-    .svc-featured::before { background: linear-gradient(180deg, var(--gold-light), var(--gold-pale)); }
-    .svc-featured h3 { color: var(--white); }
-    .svc-featured p { color: rgba(255,255,255,.6); }
-    .svc-featured .svc-icon { background: rgba(201,146,42,.15); }
-    .svc-featured .svc-tag { background: rgba(201,146,42,.15); color: var(--gold-light); }
-    .svc-featured .svc-arrow { background: rgba(201,146,42,.15); color: var(--gold-light); }
-    .svc-featured:hover .svc-icon { background: var(--gold); }
-    .svc-featured:hover .svc-arrow { background: var(--gold); color: var(--navy); }
-    .svc-featured .svc-foot { border-top-color: rgba(255,255,255,.08); }
-
-    /* ── DIFFERENTIALS ── */
-    #diferenciais { background: var(--navy); }
-    #diferenciais .sec-head { color: var(--white); }
-    #diferenciais .sec-sub { color: rgba(255,255,255,.55); }
-    #diferenciais .sec-label { color: var(--gold-light); }
-    #diferenciais .sec-label::before { background: var(--gold-light); }
-
-    .diff-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.5rem;
-      margin-top: 3rem;
-    }
-
-    .diff-item {
-      padding: 2rem 1.75rem;
-      border: 1px solid rgba(201,146,42,.15);
-      border-radius: var(--r-lg);
-      background: rgba(255,255,255,.03);
-      transition: all .3s var(--ease);
-    }
-    .diff-item:hover { background: rgba(255,255,255,.06); transform: translateY(-4px); }
-
-    .diff-icon {
-      width: 44px; height: 44px; border-radius: var(--r);
-      background: rgba(201,146,42,.12);
-      display: flex; align-items: center; justify-content: center;
-      margin-bottom: 1.25rem;
-    }
-    .diff-icon i { color: var(--gold); font-size: 1.1rem; }
-
-    .diff-item h4 { font-family: 'Syne', sans-serif; font-size: 1rem; font-weight: 700; color: var(--white); margin-bottom: .5rem; }
-    .diff-item p { font-size: .88rem; color: rgba(255,255,255,.5); line-height: 1.65; }
-
-    /* ── FORM ── */
-    #solicitar { background: var(--cream); }
-
-    .form-shell {
-      background: var(--white); border-radius: var(--r-lg);
-      box-shadow: 0 20px 60px rgba(5,16,31,.08);
-      border: 1px solid rgba(0,0,0,.06);
-      overflow: hidden;
-    }
-
-    .form-head {
-      background: var(--navy); padding: 2.5rem 2.5rem 2rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .form-head h3 {
-      font-family: 'Syne', sans-serif; font-size: 1.4rem;
-      font-weight: 700; color: var(--white); margin-bottom: .5rem;
-    }
-    .form-head p { color: rgba(255,255,255,.55); font-size: .9rem; }
-
-    .form-body { padding: 2.5rem; }
-
-    .fg { margin-bottom: 1.5rem; }
-    .fg label {
-      display: flex; align-items: center; gap: .5rem;
-      font-weight: 600; font-size: .85rem; color: var(--navy);
-      margin-bottom: .5rem; letter-spacing: .2px;
-    }
-    .fg label i { color: var(--gold); width: 16px; font-size: .85rem; }
-    .req { color: #DC2626; margin-left: .2rem; }
-
-    input, select, textarea {
-      width: 100%; padding: .85rem 1.1rem;
-      border: 1.5px solid #E2E8F0; border-radius: var(--r);
-      font-family: 'DM Sans', sans-serif; font-size: .95rem;
-      color: var(--navy); background: var(--cream);
-      transition: all .2s var(--ease);
-      -webkit-appearance: none; appearance: none;
-    }
-    input:focus, select:focus, textarea:focus {
-      outline: none; border-color: var(--gold);
-      box-shadow: 0 0 0 3px rgba(201,146,42,.15);
-      background: var(--white);
-    }
-    input::placeholder, textarea::placeholder { color: #AAB8C4; }
-
-    select {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-      background-repeat: no-repeat; background-position: right 1rem center;
-      background-size: 1rem; padding-right: 2.5rem;
-    }
-
-    textarea { resize: vertical; min-height: 130px; }
-
-    .form-grid-2 { display: grid; gap: 1.5rem; }
-    @media(min-width: 640px) { .form-grid-2 { grid-template-columns: 1fr 1fr; } }
-
-    .btn {
-      background: linear-gradient(135deg, var(--navy), var(--navy-soft));
-      color: var(--white); border: 2px solid transparent;
-      padding: 1rem 2rem; border-radius: var(--r);
-      font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 600;
-      cursor: pointer; transition: all .25s var(--ease);
-      display: inline-flex; align-items: center; justify-content: center; gap: .75rem;
-      width: 100%; letter-spacing: .3px; position: relative; overflow: hidden;
-    }
-    .btn i { color: var(--gold); font-size: 1rem; }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(5,16,31,.25); }
-    .btn:active { transform: scale(.98); }
-    .btn:focus-visible { box-shadow: 0 0 0 3px rgba(201,146,42,.3); }
-
-    .btn-ripple { position: absolute; inset: 0; background: rgba(255,255,255,0); transition: .4s; }
-    .btn:active .btn-ripple { background: rgba(255,255,255,.07); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--navy-mid);
-      border-top: 1px solid var(--border);
-      padding: 4rem 0 1.5rem;
-    }
-
-    .ft-grid {
-      display: grid; gap: 2.5rem; margin-bottom: 3rem;
-      grid-template-columns: 1fr;
-    }
-    @media(min-width: 640px) { .ft-grid { grid-template-columns: repeat(2, 1fr); } }
-    @media(min-width: 1024px) { .ft-grid { grid-template-columns: 2fr 1.5fr 1.5fr; } }
-
-    .ft-brand { }
-    .ft-brand .logo-text { font-size: 1.1rem; }
-    .ft-brand p {
-      color: rgba(255,255,255,.45); font-size: .9rem; line-height: 1.7;
-      margin: 1.25rem 0 1.5rem;
-    }
-
-    .social-row { display: flex; gap: .6rem; flex-wrap: wrap; }
-    .social-row a {
-      width: 38px; height: 38px; border-radius: 50%;
-      background: rgba(255,255,255,.07);
-      display: flex; align-items: center; justify-content: center;
-      color: rgba(255,255,255,.6); text-decoration: none;
-      transition: all .2s var(--ease); font-size: .95rem;
-    }
-    .social-row a:hover { background: var(--gold); color: var(--navy); transform: translateY(-3px); }
-
-    .ft-col h4 {
-      font-family: 'Syne', sans-serif; font-size: .85rem;
-      font-weight: 700; color: var(--white); text-transform: uppercase;
-      letter-spacing: 1.5px; margin-bottom: 1.5rem;
-      position: relative; padding-bottom: .75rem;
-    }
-    .ft-col h4::after {
-      content: ''; position: absolute; left: 0; bottom: 0;
-      width: 30px; height: 2px; background: var(--gold); border-radius: 1px;
-    }
-
-    .ft-links { list-style: none; }
-    .ft-links li { margin-bottom: .7rem; }
-    .ft-links li, .ft-links a {
-      display: flex; align-items: flex-start; gap: .6rem;
-      color: rgba(255,255,255,.45); font-size: .9rem; text-decoration: none;
-      transition: all .2s;
-    }
-    .ft-links a:hover { color: var(--gold-light); }
-    .ft-links i { color: var(--gold); width: 18px; margin-top: 2px; font-size: .85rem; }
-
-    .ft-bottom {
-      border-top: 1px solid rgba(255,255,255,.07);
-      padding-top: 1.75rem; text-align: center;
-      color: rgba(255,255,255,.3); font-size: .82rem;
-    }
-    .ft-bottom span { color: var(--gold); }
-
-    /* ── WA FLOAT ── */
-    .wa-float {
-      position: fixed; bottom: 24px; right: 24px; z-index: 99;
-      width: 56px; height: 56px; border-radius: 50%;
-      background: linear-gradient(135deg, #25D366, #128C7E);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.7rem; color: var(--white); text-decoration: none;
-      box-shadow: 0 8px 24px rgba(37,211,102,.4);
-      transition: all .3s var(--ease);
-      animation: waPulse 2.5s infinite;
-    }
-    .wa-float:hover { transform: scale(1.1); animation: none; box-shadow: 0 12px 30px rgba(37,211,102,.5); }
-
-    @keyframes waPulse {
-      0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,.4), 0 0 0 0 rgba(37,211,102,.4); }
-      50% { box-shadow: 0 8px 24px rgba(37,211,102,.4), 0 0 0 14px rgba(37,211,102,0); }
-    }
-
-    /* ── MOBILE NAV ── */
-    @media(max-width: 768px) {
-      .menu-btn { display: flex; align-items: center; justify-content: center; }
-
-      nav {
-        position: fixed; top: var(--header-h); left: 0; right: 0;
-        background: rgba(5,16,31,.98); backdrop-filter: blur(12px);
-        padding: 1.25rem; z-index: 98;
-        transform: translateY(-110%); opacity: 0;
-        transition: transform .3s var(--ease), opacity .2s;
-        pointer-events: none; border-bottom: 1px solid var(--border);
-      }
-      nav.open { transform: translateY(0); opacity: 1; pointer-events: all; }
-      nav ul { flex-direction: column; gap: .35rem; }
-      nav a { padding: .85rem 1rem; font-size: .95rem; border-radius: var(--r); color: rgba(255,255,255,.8); }
-      nav a.active::after { display: none; }
-    }
-
-    /* ── TOAST ── */
-    .toast {
-      position: fixed; bottom: 95px; right: 24px; z-index: 1000;
-      background: var(--white); color: var(--navy);
-      padding: .9rem 1.4rem; border-radius: var(--r);
-      box-shadow: 0 12px 30px rgba(5,16,31,.15);
-      border-left: 4px solid #059669;
-      display: flex; align-items: center; gap: .75rem;
-      font-size: .9rem; max-width: 380px;
-      animation: slideIn .3s var(--ease);
-    }
-    .toast.err { border-left-color: #DC2626; }
-    .toast i { font-size: 1.1rem; color: #059669; }
-    .toast.err i { color: #DC2626; }
-    .toast.out { animation: slideOut .3s var(--ease) forwards; }
-
-    @keyframes slideIn { from { opacity:0; transform:translateX(60px); } to { opacity:1; transform:translateX(0); } }
-    @keyframes slideOut { to { opacity:0; transform:translateX(80px); } }
-
-    /* ── LOADING ── */
-    .btn.loading { pointer-events: none; opacity: .75; }
-    .btn.loading::after {
-      content: ''; display: inline-block;
-      width: 18px; height: 18px;
-      border: 2px solid rgba(255,255,255,.3);
-      border-top-color: var(--white);
-      border-radius: 50%;
-      animation: spin .7s linear infinite;
-      margin-left: .5rem;
-    }
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    /* ── REVEAL ── */
-    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .6s var(--ease), transform .6s var(--ease); }
-    .reveal.visible { opacity: 1; transform: translateY(0); }
-  </style>
+<meta charset="UTF-8">
+<title>Breno Nascimento — Consultoria & Desenvolvimento em TI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Consultoria em TI, desenvolvimento web e banco de dados em Natal/RN">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root{
+  --bg:#0A0A0B;
+  --bg-2:#111113;
+  --bg-3:#16161A;
+  --surface:#1C1C21;
+  --line:rgba(255,255,255,.08);
+  --line-2:rgba(255,255,255,.14);
+  --text:#F5F5F7;
+  --text-mute:#A1A1AA;
+  --text-dim:#71717A;
+  --accent:#D4FF4F;
+  --accent-2:#B8E83A;
+  --accent-soft:rgba(212,255,79,.12);
+  --warn:#FF6B4A;
+  --sidebar-w:280px;
+  --r:10px;
+  --r-lg:18px;
+  --ease:cubic-bezier(.65,0,.35,1);
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Inter Tight',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* selection */
+::selection{background:var(--accent);color:var(--bg)}
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent)}
+
+/* ───────── SIDEBAR ───────── */
+.sidebar{
+  position:fixed;left:0;top:0;bottom:0;
+  width:var(--sidebar-w);
+  background:var(--bg-2);
+  border-right:1px solid var(--line);
+  padding:2rem 1.5rem;
+  display:flex;flex-direction:column;
+  z-index:50;
+  transition:transform .35s var(--ease);
+}
+
+.sb-brand{
+  display:flex;align-items:center;gap:.75rem;
+  text-decoration:none;
+  padding-bottom:1.75rem;
+  border-bottom:1px solid var(--line);
+  margin-bottom:1.75rem;
+}
+
+.sb-mark{
+  width:42px;height:42px;
+  background:var(--accent);
+  border-radius:12px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Instrument Serif',serif;
+  font-style:italic;font-size:1.5rem;font-weight:400;
+  color:var(--bg);
+  position:relative;
+  transition:transform .3s var(--ease);
+}
+.sb-mark::after{
+  content:'';position:absolute;
+  inset:-3px;border:1px solid var(--accent);
+  border-radius:14px;opacity:0;
+  transition:opacity .3s,inset .3s;
+}
+.sb-brand:hover .sb-mark::after{opacity:.4;inset:-5px}
+.sb-brand:hover .sb-mark{transform:rotate(-4deg)}
+
+.sb-name{
+  font-weight:600;font-size:.95rem;color:var(--text);
+  letter-spacing:-.01em;line-height:1.2;
+}
+.sb-name span{
+  display:block;font-size:.65rem;font-weight:400;
+  color:var(--text-dim);letter-spacing:.15em;
+  text-transform:uppercase;margin-top:.25rem;
+  font-family:'JetBrains Mono',monospace;
+}
+
+.sb-section{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.65rem;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--text-dim);
+  margin:1.5rem 0 .75rem;padding:0 .5rem;
+}
+.sb-section:first-of-type{margin-top:0}
+
+.sb-nav{list-style:none;display:flex;flex-direction:column;gap:.15rem}
+.sb-nav a{
+  display:flex;align-items:center;gap:.85rem;
+  color:var(--text-mute);text-decoration:none;
+  font-size:.92rem;font-weight:500;
+  padding:.7rem .85rem;
+  border-radius:var(--r);
+  transition:all .2s var(--ease);
+  position:relative;
+}
+.sb-nav a i{font-size:.95rem;width:18px;color:var(--text-dim);transition:color .2s}
+.sb-nav a:hover{background:var(--surface);color:var(--text)}
+.sb-nav a:hover i{color:var(--accent)}
+.sb-nav a.active{background:var(--surface);color:var(--text)}
+.sb-nav a.active i{color:var(--accent)}
+.sb-nav a.active::before{
+  content:'';position:absolute;left:-1.5rem;top:50%;
+  transform:translateY(-50%);
+  width:3px;height:18px;background:var(--accent);
+  border-radius:0 2px 2px 0;
+}
+
+.sb-foot{margin-top:auto;padding-top:1.5rem;border-top:1px solid var(--line)}
+
+.sb-status{
+  display:flex;align-items:center;gap:.6rem;
+  padding:.7rem .85rem;font-size:.82rem;
+  color:var(--text-mute);
+}
+.sb-status .dot{
+  width:8px;height:8px;border-radius:50%;
+  background:var(--accent);
+  box-shadow:0 0 0 0 var(--accent);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(212,255,79,.6)}
+  50%{box-shadow:0 0 0 6px rgba(212,255,79,0)}
+}
+
+.sb-cta{
+  display:flex;align-items:center;justify-content:center;gap:.5rem;
+  background:var(--accent);color:var(--bg);
+  padding:.85rem;border-radius:var(--r);
+  text-decoration:none;font-weight:600;font-size:.9rem;
+  margin-top:.5rem;
+  transition:all .2s var(--ease);
+}
+.sb-cta:hover{background:var(--accent-2);transform:translateY(-2px)}
+
+/* mobile toggle */
+.sb-toggle{
+  display:none;position:fixed;top:1rem;left:1rem;z-index:60;
+  width:44px;height:44px;border-radius:var(--r);
+  background:var(--bg-2);border:1px solid var(--line);
+  color:var(--text);cursor:pointer;
+  align-items:center;justify-content:center;font-size:1.1rem;
+}
+
+.sb-overlay{
+  display:none;position:fixed;inset:0;
+  background:rgba(0,0,0,.6);backdrop-filter:blur(4px);
+  z-index:49;opacity:0;transition:opacity .3s;
+}
+.sb-overlay.show{display:block;opacity:1}
+
+/* ───────── MAIN ───────── */
+.main{margin-left:var(--sidebar-w)}
+
+.container{max-width:1100px;margin:0 auto;padding:0 2.5rem}
+
+/* ───────── HERO ───────── */
+.hero{
+  min-height:calc(100vh - 0px);
+  display:flex;align-items:center;
+  padding:5rem 0;position:relative;overflow:hidden;
+}
+
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 50% at 80% 20%,rgba(212,255,79,.08) 0%,transparent 60%),
+    radial-gradient(ellipse 70% 60% at 10% 90%,rgba(212,255,79,.04) 0%,transparent 55%);
+}
+.hero-grid-bg{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+  background-size:80px 80px;
+  mask-image:radial-gradient(ellipse 80% 60% at center,black 30%,transparent 80%);
+}
+
+.hero-inner{position:relative;z-index:2}
+
+.hero-meta{
+  display:inline-flex;align-items:center;gap:.65rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.72rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--text-mute);
+  margin-bottom:2rem;
+  animation:up .8s var(--ease) both;
+}
+.hero-meta .line{width:32px;height:1px;background:var(--accent)}
+.hero-meta b{color:var(--accent);font-weight:500}
+
+.hero h1{
+  font-family:'Inter Tight',sans-serif;
+  font-size:clamp(2.8rem,7vw,5.5rem);
+  font-weight:600;line-height:.98;letter-spacing:-.04em;
+  margin-bottom:2rem;
+  animation:up .8s .1s var(--ease) both;
+}
+.hero h1 .serif{
+  font-family:'Instrument Serif',serif;
+  font-style:italic;font-weight:400;
+  color:var(--accent);
+}
+
+.hero-sub{
+  font-size:1.15rem;color:var(--text-mute);
+  max-width:540px;margin-bottom:2.5rem;
+  animation:up .8s .2s var(--ease) both;
+}
+
+.hero-actions{
+  display:flex;gap:.75rem;flex-wrap:wrap;
+  margin-bottom:4rem;
+  animation:up .8s .3s var(--ease) both;
+}
+
+.btn-primary,.btn-ghost{
+  display:inline-flex;align-items:center;gap:.6rem;
+  padding:.95rem 1.6rem;border-radius:var(--r);
+  font-weight:600;font-size:.95rem;
+  text-decoration:none;cursor:pointer;border:none;
+  font-family:inherit;
+  transition:all .25s var(--ease);
+}
+.btn-primary{background:var(--accent);color:var(--bg)}
+.btn-primary:hover{background:var(--accent-2);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--text);border:1px solid var(--line-2)}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border-top:1px solid var(--line);padding-top:2.5rem;
+  animation:up .8s .4s var(--ease) both;
+}
+.stat{padding-right:1rem;border-right:1px solid var(--line)}
+.stat:last-child{border-right:none}
+.stat-n{
+  font-family:'Instrument Serif',serif;
+  font-size:clamp(2rem,4vw,2.8rem);font-weight:400;
+  color:var(--text);line-height:1;letter-spacing:-.02em;
+  display:block;
+}
+.stat-n em{font-style:italic;color:var(--accent)}
+.stat-l{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;color:var(--text-dim);
+  text-transform:uppercase;letter-spacing:.15em;
+  margin-top:.5rem;display:block;
+}
+
+@keyframes up{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+
+/* ───────── SECTIONS ───────── */
+.section{padding:6rem 0;position:relative}
+.section-head{margin-bottom:4rem;max-width:680px}
+
+.tag{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--accent);
+  margin-bottom:1.25rem;
+}
+.tag::before{
+  content:'';width:6px;height:6px;background:var(--accent);
+  border-radius:50%;
+}
+
+.section h2{
+  font-family:'Inter Tight',sans-serif;
+  font-size:clamp(2rem,4vw,3rem);font-weight:500;
+  letter-spacing:-.03em;line-height:1.05;margin-bottom:1rem;
+}
+.section h2 .serif{
+  font-family:'Instrument Serif',serif;
+  font-style:italic;font-weight:400;color:var(--accent);
+}
+.section-sub{color:var(--text-mute);font-size:1.05rem;max-width:560px}
+
+/* ───────── SERVICES ───────── */
+.services{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+  gap:1px;background:var(--line);
+  border:1px solid var(--line);border-radius:var(--r-lg);
+  overflow:hidden;
+}
+
+.svc{
+  background:var(--bg-2);
+  padding:2.25rem;
+  cursor:pointer;
+  position:relative;
+  transition:background .3s var(--ease);
+  display:flex;flex-direction:column;
+  min-height:260px;
+}
+.svc:hover{background:var(--bg-3)}
+
+.svc-num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.7rem;color:var(--text-dim);
+  letter-spacing:.15em;
+  position:absolute;top:1.5rem;right:1.5rem;
+}
+
+.svc-icon{
+  width:44px;height:44px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--surface);
+  border-radius:var(--r);
+  margin-bottom:1.5rem;
+  color:var(--accent);font-size:1.1rem;
+  transition:all .3s var(--ease);
+}
+.svc:hover .svc-icon{background:var(--accent);color:var(--bg);transform:rotate(-6deg)}
+
+.svc h3{
+  font-size:1.25rem;font-weight:600;
+  letter-spacing:-.01em;margin-bottom:.65rem;
+}
+.svc p{color:var(--text-mute);font-size:.92rem;flex:1}
+
+.svc-foot{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-top:1.5rem;padding-top:1.25rem;
+  border-top:1px solid var(--line);
+}
+.svc-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--text-dim);
+}
+.svc-arrow{
+  width:32px;height:32px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-mute);font-size:.85rem;
+  transition:all .3s var(--ease);
+}
+.svc:hover .svc-arrow{color:var(--accent);transform:translate(4px,-4px)}
+
+.svc-feat{background:var(--bg-3)}
+.svc-feat .svc-icon{background:var(--accent);color:var(--bg)}
+
+/* ───────── DIFFERENTIALS ───────── */
+.diffs{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+
+.diff{
+  padding:2rem;border:1px solid var(--line);
+  border-radius:var(--r-lg);background:var(--bg-2);
+  transition:all .3s var(--ease);
+  position:relative;overflow:hidden;
+}
+.diff::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--accent),transparent);
+  transform:translateX(-100%);transition:transform .6s var(--ease);
+}
+.diff:hover{border-color:var(--line-2);transform:translateY(-4px)}
+.diff:hover::before{transform:translateX(100%)}
+
+.diff-icon{
+  width:40px;height:40px;border-radius:var(--r);
+  background:var(--accent-soft);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--accent);font-size:1rem;margin-bottom:1.25rem;
+}
+.diff h4{font-size:1.05rem;font-weight:600;margin-bottom:.5rem;letter-spacing:-.01em}
+.diff p{font-size:.88rem;color:var(--text-mute)}
+
+/* ───────── FORM ───────── */
+.form-section{background:var(--bg-2)}
+
+.form-wrap{
+  display:grid;grid-template-columns:1fr 1fr;gap:4rem;
+  align-items:start;
+}
+
+.form-info{position:sticky;top:2rem}
+.form-info h2{margin-bottom:1.5rem}
+
+.info-list{list-style:none;margin-top:2rem}
+.info-list li{
+  display:flex;gap:1rem;padding:1.25rem 0;
+  border-bottom:1px solid var(--line);
+}
+.info-list li:last-child{border-bottom:none}
+.info-list i{
+  color:var(--accent);font-size:1rem;
+  width:36px;height:36px;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--accent-soft);border-radius:var(--r);
+  flex-shrink:0;
+}
+.info-list .lbl{
+  font-family:'JetBrains Mono',monospace;
+  font-size:.68rem;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--text-dim);
+  margin-bottom:.25rem;
+}
+.info-list .val{color:var(--text);font-size:.95rem;text-decoration:none}
+.info-list a.val:hover{color:var(--accent)}
+
+.form-card{
+  background:var(--bg-3);border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:2.5rem;
+}
+
+.fg{margin-bottom:1.5rem}
+.fg label{
+  display:block;font-size:.85rem;font-weight:500;
+  color:var(--text);margin-bottom:.5rem;
+  letter-spacing:-.005em;
+}
+.fg label .req{color:var(--warn);margin-left:.2rem}
+
+input,select,textarea{
+  width:100%;padding:.95rem 1.1rem;
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  color:var(--text);font-family:inherit;font-size:.95rem;
+  transition:all .2s var(--ease);
+  -webkit-appearance:none;appearance:none;
+}
+input:focus,select:focus,textarea:focus{
+  outline:none;border-color:var(--accent);
+  background:var(--bg-2);
+}
+input::placeholder,textarea::placeholder{color:var(--text-dim)}
+
+select{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%23A1A1AA' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 1rem center;
+  padding-right:2.5rem;
+}
+textarea{resize:vertical;min-height:120px}
+
+.fg-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+
+.btn-submit{
+  width:100%;padding:1.1rem;
+  background:var(--accent);color:var(--bg);
+  border:none;border-radius:var(--r);
+  font-family:inherit;font-weight:600;font-size:1rem;
+  cursor:pointer;
+  display:flex;align-items:center;justify-content:center;gap:.6rem;
+  transition:all .25s var(--ease);
+}
+.btn-submit:hover{background:var(--accent-2);transform:translateY(-2px)}
+.btn-submit.loading{opacity:.7;pointer-events:none}
+.btn-submit.loading::after{
+  content:'';width:16px;height:16px;
+  border:2px solid rgba(0,0,0,.2);border-top-color:var(--bg);
+  border-radius:50%;animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ───────── FOOTER ───────── */
+footer{
+  border-top:1px solid var(--line);
+  padding:2rem 0;
+}
+.ft-inner{
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:1rem;
+  font-family:'JetBrains Mono',monospace;
+  font-size:.75rem;color:var(--text-dim);
+  letter-spacing:.05em;
+}
+.ft-inner .accent{color:var(--accent)}
+
+/* ───────── TOAST ───────── */
+.toast{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:200;
+  background:var(--bg-3);color:var(--text);
+  padding:1rem 1.25rem;border-radius:var(--r);
+  border:1px solid var(--line-2);
+  box-shadow:0 12px 32px rgba(0,0,0,.4);
+  display:flex;align-items:center;gap:.75rem;
+  font-size:.9rem;max-width:360px;
+  animation:slideIn .3s var(--ease);
+}
+.toast i{color:var(--accent)}
+.toast.err{border-color:var(--warn)}
+.toast.err i{color:var(--warn)}
+.toast.out{animation:slideOut .3s var(--ease) forwards}
+@keyframes slideIn{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+@keyframes slideOut{to{opacity:0;transform:translateX(60px)}}
+
+/* ───────── REVEAL ───────── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:translateY(0)}
+
+/* ───────── WA FLOAT ───────── */
+.wa{
+  position:fixed;bottom:1.5rem;right:1.5rem;z-index:40;
+  width:54px;height:54px;border-radius:50%;
+  background:#25D366;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.5rem;text-decoration:none;
+  box-shadow:0 8px 24px rgba(37,211,102,.35);
+  transition:transform .3s var(--ease);
+}
+.wa:hover{transform:scale(1.1) rotate(-8deg)}
+
+/* ───────── RESPONSIVE ───────── */
+@media(max-width:980px){
+  .sidebar{transform:translateX(-100%)}
+  .sidebar.open{transform:translateX(0)}
+  .main{margin-left:0}
+  .sb-toggle{display:flex}
+  .container{padding:0 1.25rem}
+  .hero{padding:6rem 0 4rem}
+  .hero-stats{grid-template-columns:repeat(2,1fr);gap:1.5rem 0}
+  .stat{padding:1rem 1rem 1rem 0}
+  .form-wrap{grid-template-columns:1fr;gap:2.5rem}
+  .form-info{position:static}
+  .form-card{padding:1.75rem}
+  .fg-grid{grid-template-columns:1fr}
+}
+@media(max-width:520px){
+  .hero h1{font-size:2.5rem}
+  .section{padding:4rem 0}
+  .svc{padding:1.75rem;min-height:220px}
+}
+</style>
 </head>
 
 <body>
-  <a href="#main-content" class="sr-only">Pular para conteúdo principal</a>
 
-  <!-- HEADER -->
-  <header>
-    <div class="hd-inner">
-      <a href="#inicio" class="logo" aria-label="Breno Nascimento - Início">
-        <div class="logo-mark"><i class="fas fa-code"></i></div>
-        <div class="logo-text">
-          Breno Nascimento
-          <span>CONSULTORIA & DESENVOLVIMENTO</span>
-        </div>
-      </a>
+<!-- mobile toggle -->
+<button class="sb-toggle" id="sbToggle" aria-label="Menu"><i class="fas fa-bars"></i></button>
+<div class="sb-overlay" id="sbOverlay"></div>
 
-      <button class="menu-btn" id="menuBtn" aria-label="Menu" aria-expanded="false">
-        <i class="fas fa-bars"></i>
-      </button>
-
-      <nav id="mainNav" aria-label="Navegação principal">
-        <ul>
-          <li><a href="#inicio" class="active"><i class="fas fa-home"></i> Início</a></li>
-          <li><a href="#servicos"><i class="fas fa-layer-group"></i> Serviços</a></li>
-          <li><a href="#diferenciais"><i class="fas fa-star"></i> Diferenciais</a></li>
-          <li><a href="#solicitar"><i class="fas fa-headset"></i> Solicitar</a></li>
-          <li>
-            <a href="https://wa.me/5584994291197" target="_blank" rel="noopener" class="nav-cta">
-              <i class="fab fa-whatsapp"></i> WhatsApp
-            </a>
-          </li>
-        </ul>
-      </nav>
+<!-- ─── SIDEBAR ─── -->
+<aside class="sidebar" id="sidebar">
+  <a href="#inicio" class="sb-brand">
+    <div class="sb-mark">B</div>
+    <div class="sb-name">
+      Breno Nascimento
+      <span>TI · DEV · DB</span>
     </div>
-  </header>
+  </a>
 
-  <main id="main-content">
+  <div class="sb-section">Navegação</div>
+  <ul class="sb-nav">
+    <li><a href="#inicio" class="active"><i class="fas fa-house"></i> Início</a></li>
+    <li><a href="#servicos"><i class="fas fa-grid-2"></i> Serviços</a></li>
+    <li><a href="#diferenciais"><i class="fas fa-sparkles"></i> Diferenciais</a></li>
+    <li><a href="#contato"><i class="fas fa-paper-plane"></i> Contato</a></li>
+  </ul>
 
-    <!-- HERO -->
-    <section class="hero" id="inicio">
-      <div class="hero-bg"></div>
-      <div class="hero-grid"></div>
-      <div class="shape shape-1"></div>
-      <div class="shape shape-2"></div>
+  <div class="sb-section">Conectar</div>
+  <ul class="sb-nav">
+    <li><a href="https://wa.me/5584994291197" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+    <li><a href="mailto:antoniobreno500@gmail.com"><i class="fas fa-envelope"></i> E-mail</a></li>
+    <li><a href="#" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+    <li><a href="#" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+  </ul>
 
-      <div class="hero-inner">
-        <div class="hero-tag">
-          <i class="fas fa-map-marker-alt"></i> Natal, RN — Atendimento Local & Remoto
-        </div>
+  <div class="sb-foot">
+    <div class="sb-status">
+      <span class="dot"></span>
+      Disponível para projetos
+    </div>
+    <a href="#contato" class="sb-cta">
+      <i class="fas fa-bolt"></i> Solicitar orçamento
+    </a>
+  </div>
+</aside>
 
-        <h1>Tecnologia que <em>funciona</em> para você e sua empresa</h1>
+<!-- ─── MAIN ─── -->
+<div class="main">
 
-        <p class="hero-sub">
-          Suporte em TI, criação de sites profissionais e soluções em banco de dados.
-          Atendimento ágil para pessoas físicas e empresas em toda região de Natal.
-        </p>
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-bg"></div>
+    <div class="hero-grid-bg"></div>
 
-        <div class="hero-pills">
-          <span class="pill"><i class="fas fa-tools"></i> Suporte Técnico</span>
-          <span class="pill"><i class="fas fa-code"></i> Criação de Sites</span>
-          <span class="pill"><i class="fas fa-database"></i> Banco de Dados</span>
-          <span class="pill"><i class="fas fa-shield-alt"></i> Backup & Segurança</span>
-          <span class="pill"><i class="fas fa-print"></i> Impressoras</span>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat">
-            <span class="stat-n">100+</span>
-            <span class="stat-l">Clientes Atendidos</span>
-          </div>
-          <div class="stat">
-            <span class="stat-n">24/7</span>
-            <span class="stat-l">Suporte Disponível</span>
-          </div>
-          <div class="stat">
-            <span class="stat-n">98%</span>
-            <span class="stat-l">Satisfação</span>
-          </div>
-          <div class="stat">
-            <span class="stat-n">5+</span>
-            <span class="stat-l">Anos de Experiência</span>
-          </div>
-        </div>
+    <div class="container hero-inner">
+      <div class="hero-meta">
+        <span class="line"></span>
+        <span>Natal · RN</span>
+        <b>● Disponível</b>
       </div>
-    </section>
 
-    <!-- SERVIÇOS -->
-    <section class="section" id="servicos">
-      <div class="container">
-        <div class="sec-header reveal">
-          <div class="sec-label">O que ofereço</div>
-          <h2 class="sec-head">Soluções completas em TI</h2>
-          <p class="sec-sub">Da manutenção do seu computador ao desenvolvimento de sistemas — um profissional, todas as soluções.</p>
-        </div>
+      <h1>
+        Tecnologia que <span class="serif">simplesmente</span><br>
+        funciona pra você.
+      </h1>
 
-        <div class="services-grid">
+      <p class="hero-sub">
+        Suporte em TI, criação de sites e soluções em banco de dados.
+        Atendimento ágil pra pessoas físicas e empresas — local ou remoto.
+      </p>
 
-          <!-- Sites -->
-          <div class="svc-card svc-featured reveal" onclick="preencherServico('Criação de Sites')" role="button" tabindex="0" onkeypress="if(event.key==='Enter') preencherServico('Criação de Sites')" aria-label="Solicitar criação de sites">
-            <div class="svc-icon"><i class="fas fa-globe"></i></div>
-            <h3>Criação de Sites</h3>
-            <p>Sites institucionais, landing pages e lojas virtuais. Design responsivo, profissional e otimizado para Google — ideal para divulgar seu negócio online.</p>
-            <div class="svc-foot">
-              <span class="svc-tag">Novo</span>
-              <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-          </div>
-
-          <!-- Banco de Dados -->
-          <div class="svc-card svc-featured reveal" onclick="preencherServico('Banco de Dados')" role="button" tabindex="0" onkeypress="if(event.key==='Enter') preencherServico('Banco de Dados')" aria-label="Solicitar serviços de banco de dados">
-            <div class="svc-icon"><i class="fas fa-database"></i></div>
-            <h3>Banco de Dados</h3>
-            <p>Criação, manutenção e otimização de bancos de dados (MySQL, PostgreSQL, SQLite). Modelagem de dados, queries, backup e integração com sistemas.</p>
-            <div class="svc-foot">
-              <span class="svc-tag">Novo</span>
-              <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-          </div>
-
-          <!-- Suporte -->
-          <div class="svc-card reveal" onclick="preencherServico('Suporte Técnico')" role="button" tabindex="0" onkeypress="if(event.key==='Enter') preencherServico('Suporte Técnico')" aria-label="Solicitar suporte técnico">
-            <div class="svc-icon"><i class="fas fa-tools"></i></div>
-            <h3>Suporte Técnico</h3>
-            <p>Formatação, remoção de vírus, instalação de programas, lentidão e muito mais — para seu PC, notebook ou rede corporativa.</p>
-            <div class="svc-foot">
-              <span class="svc-tag">PC & Notebook</span>
-              <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-          </div>
-
-          <!-- Consultoria -->
-          <div class="svc-card reveal" onclick="preencherServico('Consultoria de TI')" role="button" tabindex="0" onkeypress="if(event.key==='Enter') preencherServico('Consultoria de TI')" aria-label="Solicitar consultoria de TI">
-            <div class="svc-icon"><i class="fas fa-chart-line"></i></div>
-            <h3>Consultoria em TI</h3>
-            <p>Análise de infraestrutura, segurança da informação e otimização de processos para empresas. Para usuários: orientação na compra do equipamento ideal.</p>
-            <div class="svc-foot">
-              <span class="svc-tag">Personalizado</span>
-              <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-          </div>
-
-          <!-- Backup -->
-          <div class="svc-card reveal" onclick="preencherServico('Backup de Dados')" role="button" tabindex="0" onkeypress="if(event.key==='Enter') preencherServico('Backup de Dados')" aria-label="Solicitar backup de dados">
-            <div class="svc-icon"><i class="fas fa-hdd"></i></div>
-            <h3>Backup de Dados</h3>
-            <p>Proteja fotos, documentos e arquivos críticos. Soluções de backup local e em nuvem para uso pessoal e corporativo.</p>
-            <div class="svc-foot">
-              <span class="svc-tag">Proteção</span>
-              <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-          </div>
-
-          <!-- Upgrade -->
-          <div class="svc-card reveal" onclick="preencherServico('Upgrade e Montagem')" role="button" tabindex="0" onkeypress="if(event.key==='Enter') preencherServico('Upgrade e Montagem')" aria-label="Solicitar upgrade ou montagem">
-            <div class="svc-icon"><i class="fas fa-microchip"></i></div>
-            <h3>Upgrade & Montagem</h3>
-            <p>Deixe seu PC mais veloz com SSD ou mais memória RAM. Ou monte um computador novo sob medida para trabalho, estudo ou games.</p>
-            <div class="svc-foot">
-              <span class="svc-tag">Performance</span>
-              <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-          </div>
-
-          <!-- Impressoras -->
-          <div class="svc-card reveal" onclick="preencherServico('Impressoras')" role="button" tabindex="0" onkeypress="if(event.key==='Enter') preencherServico('Impressoras')" aria-label="Solicitar serviço de impressoras">
-            <div class="svc-icon"><i class="fas fa-print"></i></div>
-            <h3>Impressoras</h3>
-            <p>Configuração, instalação de drivers, compartilhamento em rede e solução de falhas em impressoras domésticas e corporativas.</p>
-            <div class="svc-foot">
-              <span class="svc-tag">Configuração</span>
-              <div class="svc-arrow"><i class="fas fa-arrow-right"></i></div>
-            </div>
-          </div>
-
-        </div>
+      <div class="hero-actions">
+        <a href="#contato" class="btn-primary">
+          <i class="fas fa-arrow-right"></i> Iniciar projeto
+        </a>
+        <a href="#servicos" class="btn-ghost">
+          Ver serviços
+        </a>
       </div>
-    </section>
 
-    <!-- DIFERENCIAIS -->
-    <section class="section" id="diferenciais">
-      <div class="container">
-        <div class="sec-header reveal">
-          <div class="sec-label" style="color:var(--gold-light)">
-            <span style="background:var(--gold-light)"></span>Por que me escolher
-          </div>
-          <h2 class="sec-head">Diferenciais do atendimento</h2>
-          <p class="sec-sub" style="color:rgba(255,255,255,.5)">Compromisso com resultado, transparência e agilidade em cada projeto.</p>
-        </div>
-
-        <div class="diff-grid">
-          <div class="diff-item reveal">
-            <div class="diff-icon"><i class="fas fa-bolt"></i></div>
-            <h4>Resposta Rápida</h4>
-            <p>Atendimento ágil via WhatsApp — retorno em minutos, solução no menor prazo possível.</p>
-          </div>
-          <div class="diff-item reveal">
-            <div class="diff-icon"><i class="fas fa-user-tie"></i></div>
-            <h4>Atendimento Personalizado</h4>
-            <p>Cada cliente é único. Sem soluções genéricas — diagnóstico real, solução sob medida.</p>
-          </div>
-          <div class="diff-item reveal">
-            <div class="diff-icon"><i class="fas fa-laptop-house"></i></div>
-            <h4>Remoto ou Presencial</h4>
-            <p>Atendo de forma remota (acesso seguro) ou presencialmente em Natal e região.</p>
-          </div>
-          <div class="diff-item reveal">
-            <div class="diff-icon"><i class="fas fa-lock"></i></div>
-            <h4>Sigilo & Segurança</h4>
-            <p>Seus dados e informações tratados com total confidencialidade e responsabilidade.</p>
-          </div>
-          <div class="diff-item reveal">
-            <div class="diff-icon"><i class="fas fa-layer-group"></i></div>
-            <h4>Profissional Multidisciplinar</h4>
-            <p>Suporte técnico, desenvolvimento web e banco de dados — tudo com um único profissional de confiança.</p>
-          </div>
-          <div class="diff-item reveal">
-            <div class="diff-icon"><i class="fas fa-comments-dollar"></i></div>
-            <h4>Preço Justo</h4>
-            <p>Orçamento transparente, sem surpresas. Qualidade profissional com custo acessível.</p>
-          </div>
-        </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-n">100<em>+</em></span><span class="stat-l">Clientes</span></div>
+        <div class="stat"><span class="stat-n">24<em>/</em>7</span><span class="stat-l">Suporte</span></div>
+        <div class="stat"><span class="stat-n">98<em>%</em></span><span class="stat-l">Satisfação</span></div>
+        <div class="stat"><span class="stat-n">5<em>+</em></span><span class="stat-l">Anos</span></div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- FORMULÁRIO -->
-    <section class="section" id="solicitar">
-      <div class="container">
-        <div class="sec-header reveal" style="max-width:560px">
-          <div class="sec-label">Contato</div>
-          <h2 class="sec-head">Solicitar atendimento</h2>
-          <p class="sec-sub">Preencha o formulário — retorno o mais rápido possível por WhatsApp.</p>
+  <!-- SERVIÇOS -->
+  <section class="section" id="servicos">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="tag">O que ofereço</div>
+        <h2>Soluções <span class="serif">completas</span> em TI</h2>
+        <p class="section-sub">Da manutenção do computador ao desenvolvimento de sistemas — um profissional, todas as soluções.</p>
+      </div>
+
+      <div class="services reveal">
+
+        <div class="svc svc-feat" onclick="fillService('Criação de Sites')" role="button" tabindex="0">
+          <span class="svc-num">01</span>
+          <div class="svc-icon"><i class="fas fa-globe"></i></div>
+          <h3>Criação de Sites</h3>
+          <p>Sites institucionais, landing pages e e-commerce. Design responsivo e otimizado pra Google.</p>
+          <div class="svc-foot">
+            <span class="svc-tag">Web · UI · SEO</span>
+            <span class="svc-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+          </div>
         </div>
 
-        <div class="form-shell reveal">
-          <div class="form-head">
-            <h3><i class="fas fa-headset" style="color:var(--gold-light);margin-right:.6rem"></i> Nova Solicitação</h3>
-            <p>Campos marcados com <span style="color:#DC2626">*</span> são obrigatórios</p>
+        <div class="svc svc-feat" onclick="fillService('Banco de Dados')" role="button" tabindex="0">
+          <span class="svc-num">02</span>
+          <div class="svc-icon"><i class="fas fa-database"></i></div>
+          <h3>Banco de Dados</h3>
+          <p>MySQL, PostgreSQL, SQLite. Modelagem, queries, otimização, backup e integração.</p>
+          <div class="svc-foot">
+            <span class="svc-tag">SQL · NoSQL</span>
+            <span class="svc-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
           </div>
+        </div>
 
-          <div class="form-body">
-            <form id="atendimentoForm" novalidate>
+        <div class="svc" onclick="fillService('Suporte Técnico')" role="button" tabindex="0">
+          <span class="svc-num">03</span>
+          <div class="svc-icon"><i class="fas fa-screwdriver-wrench"></i></div>
+          <h3>Suporte Técnico</h3>
+          <p>Formatação, vírus, lentidão, instalação. PC, notebook ou rede corporativa.</p>
+          <div class="svc-foot">
+            <span class="svc-tag">PC · Notebook</span>
+            <span class="svc-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+          </div>
+        </div>
 
-              <div class="form-grid-2">
-                <div class="fg">
-                  <label for="nome"><i class="fas fa-user"></i> Nome Completo <span class="req">*</span></label>
-                  <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
-                </div>
-                <div class="fg">
-                  <label for="telefone"><i class="fas fa-phone"></i> WhatsApp <span class="req">*</span></label>
-                  <input type="tel" id="telefone" name="telefone" placeholder="(84) 99429-1197" required>
-                </div>
-                <div class="fg">
-                  <label for="email"><i class="fas fa-envelope"></i> E-mail <span class="req">*</span></label>
-                  <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-                </div>
-                <div class="fg">
-                  <label for="tipo_cliente"><i class="fas fa-building"></i> Tipo de Cliente</label>
-                  <select id="tipo_cliente" name="tipo_cliente">
-                    <option value="pessoa_fisica">Pessoa Física (Uso Pessoal)</option>
-                    <option value="pessoa_juridica">Pessoa Jurídica (Empresa)</option>
-                  </select>
-                </div>
-                <div class="fg">
-                  <label for="servico"><i class="fas fa-layer-group"></i> Serviço Desejado <span class="req">*</span></label>
-                  <select id="servico" name="servico" required>
-                    <option value="">Selecione...</option>
-                    <option value="Criação de Sites">Criação de Sites</option>
-                    <option value="Banco de Dados">Banco de Dados</option>
-                    <option value="Suporte Técnico">Suporte Técnico</option>
-                    <option value="Consultoria de TI">Consultoria de TI</option>
-                    <option value="Backup de Dados">Backup de Dados</option>
-                    <option value="Upgrade e Montagem">Upgrade e Montagem</option>
-                    <option value="Impressoras">Impressoras</option>
-                  </select>
-                </div>
-                <div class="fg">
-                  <label for="urgencia"><i class="fas fa-exclamation-circle"></i> Urgência</label>
-                  <select id="urgencia" name="urgencia">
-                    <option value="baixa">Baixa — Pode aguardar</option>
-                    <option value="media" selected>Média — Próximos dias</option>
-                    <option value="alta">Alta — Necessário hoje</option>
-                    <option value="critica">Crítica — Equipamento parado</option>
-                  </select>
-                </div>
+        <div class="svc" onclick="fillService('Consultoria de TI')" role="button" tabindex="0">
+          <span class="svc-num">04</span>
+          <div class="svc-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Consultoria em TI</h3>
+          <p>Análise de infraestrutura, segurança da informação e otimização de processos.</p>
+          <div class="svc-foot">
+            <span class="svc-tag">Estratégia</span>
+            <span class="svc-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+          </div>
+        </div>
+
+        <div class="svc" onclick="fillService('Backup de Dados')" role="button" tabindex="0">
+          <span class="svc-num">05</span>
+          <div class="svc-icon"><i class="fas fa-cloud-arrow-up"></i></div>
+          <h3>Backup de Dados</h3>
+          <p>Proteção de fotos, documentos e arquivos críticos. Local ou em nuvem.</p>
+          <div class="svc-foot">
+            <span class="svc-tag">Cloud · Local</span>
+            <span class="svc-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+          </div>
+        </div>
+
+        <div class="svc" onclick="fillService('Upgrade e Montagem')" role="button" tabindex="0">
+          <span class="svc-num">06</span>
+          <div class="svc-icon"><i class="fas fa-microchip"></i></div>
+          <h3>Upgrade & Montagem</h3>
+          <p>SSD, memória RAM ou montagem de PC sob medida pra trabalho, estudo ou games.</p>
+          <div class="svc-foot">
+            <span class="svc-tag">Performance</span>
+            <span class="svc-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+          </div>
+        </div>
+
+        <div class="svc" onclick="fillService('Impressoras')" role="button" tabindex="0">
+          <span class="svc-num">07</span>
+          <div class="svc-icon"><i class="fas fa-print"></i></div>
+          <h3>Impressoras</h3>
+          <p>Configuração, drivers, compartilhamento em rede e solução de falhas.</p>
+          <div class="svc-foot">
+            <span class="svc-tag">USB · Wi-Fi</span>
+            <span class="svc-arrow"><i class="fas fa-arrow-up-right-from-square"></i></span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- DIFERENCIAIS -->
+  <section class="section" id="diferenciais">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="tag">Por que escolher</div>
+        <h2>Diferenciais do <span class="serif">atendimento</span></h2>
+        <p class="section-sub">Compromisso com resultado, transparência e agilidade em cada projeto.</p>
+      </div>
+
+      <div class="diffs">
+        <div class="diff reveal"><div class="diff-icon"><i class="fas fa-bolt"></i></div><h4>Resposta Rápida</h4><p>Atendimento ágil via WhatsApp — retorno em minutos.</p></div>
+        <div class="diff reveal"><div class="diff-icon"><i class="fas fa-user-tie"></i></div><h4>Personalizado</h4><p>Diagnóstico real, solução sob medida pra cada cliente.</p></div>
+        <div class="diff reveal"><div class="diff-icon"><i class="fas fa-laptop-house"></i></div><h4>Remoto ou Presencial</h4><p>Acesso remoto seguro ou atendimento em Natal e região.</p></div>
+        <div class="diff reveal"><div class="diff-icon"><i class="fas fa-shield-halved"></i></div><h4>Sigilo & Segurança</h4><p>Dados tratados com total confidencialidade.</p></div>
+        <div class="diff reveal"><div class="diff-icon"><i class="fas fa-layer-group"></i></div><h4>Multidisciplinar</h4><p>TI, web e banco de dados — um único profissional.</p></div>
+        <div class="diff reveal"><div class="diff-icon"><i class="fas fa-tag"></i></div><h4>Preço Justo</h4><p>Orçamento transparente, sem surpresas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section class="section form-section" id="contato">
+    <div class="container">
+      <div class="form-wrap">
+
+        <div class="form-info reveal">
+          <div class="tag">Contato</div>
+          <h2>Vamos <span class="serif">conversar</span></h2>
+          <p class="section-sub">Preencha o formulário — retorno o mais rápido possível por WhatsApp.</p>
+
+          <ul class="info-list">
+            <li>
+              <i class="fab fa-whatsapp"></i>
+              <div>
+                <div class="lbl">WhatsApp</div>
+                <a href="https://wa.me/5584994291197" class="val" target="_blank" rel="noopener">(84) 99429-1197</a>
               </div>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <div>
+                <div class="lbl">E-mail</div>
+                <a href="mailto:antoniobreno500@gmail.com" class="val">antoniobreno500@gmail.com</a>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-location-dot"></i>
+              <div>
+                <div class="lbl">Localização</div>
+                <span class="val">Natal · RN</span>
+              </div>
+            </li>
+            <li>
+              <i class="fas fa-clock"></i>
+              <div>
+                <div class="lbl">Horário</div>
+                <span class="val">Seg–Sex 8h–18h · Sáb 9h–13h</span>
+              </div>
+            </li>
+          </ul>
+        </div>
 
+        <div class="form-card reveal">
+          <form id="contactForm" novalidate>
+            <div class="fg">
+              <label for="nome">Nome completo <span class="req">*</span></label>
+              <input type="text" id="nome" placeholder="Seu nome" required>
+            </div>
+
+            <div class="fg-grid">
               <div class="fg">
-                <label for="mensagem"><i class="fas fa-comment-alt"></i> Descreva sua necessidade</label>
-                <textarea id="mensagem" name="mensagem" placeholder="Descreva o problema, o projeto ou a dúvida. Quanto mais detalhes, melhor!"></textarea>
+                <label for="telefone">WhatsApp <span class="req">*</span></label>
+                <input type="tel" id="telefone" placeholder="(84) 99999-9999" required>
               </div>
+              <div class="fg">
+                <label for="email">E-mail <span class="req">*</span></label>
+                <input type="email" id="email" placeholder="seu@email.com" required>
+              </div>
+            </div>
 
-              <button type="submit" class="btn" id="submitBtn">
-                <span class="btn-ripple"></span>
-                <i class="fas fa-paper-plane"></i>
-                Enviar via WhatsApp
-              </button>
+            <div class="fg-grid">
+              <div class="fg">
+                <label for="tipo">Tipo</label>
+                <select id="tipo">
+                  <option value="pf">Pessoa Física</option>
+                  <option value="pj">Empresa</option>
+                </select>
+              </div>
+              <div class="fg">
+                <label for="urgencia">Urgência</label>
+                <select id="urgencia">
+                  <option value="baixa">Baixa</option>
+                  <option value="media" selected>Média</option>
+                  <option value="alta">Alta</option>
+                  <option value="critica">Crítica</option>
+                </select>
+              </div>
+            </div>
 
-            </form>
-          </div>
+            <div class="fg">
+              <label for="servico">Serviço desejado <span class="req">*</span></label>
+              <select id="servico" required>
+                <option value="">Selecione...</option>
+                <option>Criação de Sites</option>
+                <option>Banco de Dados</option>
+                <option>Suporte Técnico</option>
+                <option>Consultoria de TI</option>
+                <option>Backup de Dados</option>
+                <option>Upgrade e Montagem</option>
+                <option>Impressoras</option>
+              </select>
+            </div>
+
+            <div class="fg">
+              <label for="mensagem">Descreva sua necessidade</label>
+              <textarea id="mensagem" placeholder="Quanto mais detalhes, melhor."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submitBtn">
+              <i class="fab fa-whatsapp"></i> Enviar via WhatsApp
+            </button>
+          </form>
         </div>
-      </div>
-    </section>
 
-  </main>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <div class="ft-grid">
-        <div class="ft-brand">
-          <a href="#inicio" class="logo" style="margin-bottom:1.25rem;display:inline-flex">
-            <div class="logo-mark"><i class="fas fa-code"></i></div>
-            <div class="logo-text">Breno Nascimento<span>CONSULTORIA & DESENVOLVIMENTO</span></div>
-          </a>
-          <p>Suporte em TI, desenvolvimento de sites e banco de dados. Atendimento para pessoas físicas e empresas em Natal/RN e região.</p>
-          <div class="social-row">
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="https://wa.me/5584994291197" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="mailto:antoniobreno500@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-          </div>
-        </div>
-
-        <div class="ft-col">
-          <h4>Contato</h4>
-          <ul class="ft-links">
-            <li><i class="fab fa-whatsapp"></i><a href="https://wa.me/5584994291197" target="_blank" rel="noopener">(84) 99429-1197</a></li>
-            <li><i class="fas fa-envelope"></i><a href="mailto:antoniobreno500@gmail.com">antoniobreno500@gmail.com</a></li>
-            <li><i class="fas fa-map-marker-alt"></i><span>Natal, RN</span></li>
-            <li><i class="fas fa-clock"></i><span>Seg–Sex: 8h–18h | Sáb: 9h–13h</span></li>
-          </ul>
-        </div>
-
-        <div class="ft-col">
-          <h4>Serviços</h4>
-          <ul class="ft-links">
-            <li><i class="fas fa-chevron-right"></i><a href="#servicos">Criação de Sites</a></li>
-            <li><i class="fas fa-chevron-right"></i><a href="#servicos">Banco de Dados</a></li>
-            <li><i class="fas fa-chevron-right"></i><a href="#servicos">Suporte Técnico</a></li>
-            <li><i class="fas fa-chevron-right"></i><a href="#servicos">Consultoria em TI</a></li>
-            <li><i class="fas fa-chevron-right"></i><a href="#servicos">Backup de Dados</a></li>
-            <li><i class="fas fa-chevron-right"></i><a href="#solicitar">Solicitar Atendimento</a></li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="ft-bottom">
-        <p>&copy; 2024–2025 Breno Nascimento. Todos os direitos reservados. — Desenvolvido com <span>♥</span> em Natal/RN</p>
+      <div class="ft-inner">
+        <span>© 2024–2025 BRENO NASCIMENTO</span>
+        <span>NATAL · RN <span class="accent">●</span> BRASIL</span>
       </div>
     </div>
   </footer>
 
-  <!-- WA FLOAT -->
-  <a href="https://wa.me/5584994291197" target="_blank" rel="noopener" class="wa-float" aria-label="Contato WhatsApp">
-    <i class="fab fa-whatsapp"></i>
-  </a>
+</div>
 
-  <script>
-  (function() {
-    'use strict';
+<a href="https://wa.me/5584994291197" target="_blank" rel="noopener" class="wa" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
-    /* ── MENU ── */
-    const btn = document.getElementById('menuBtn');
-    const nav = document.getElementById('mainNav');
+<script>
+(function(){
+  'use strict';
 
-    btn?.addEventListener('click', () => {
-      const open = nav.classList.toggle('open');
-      btn.setAttribute('aria-expanded', open);
-      btn.innerHTML = open ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+  /* sidebar toggle */
+  const sb=document.getElementById('sidebar');
+  const sbBtn=document.getElementById('sbToggle');
+  const sbOv=document.getElementById('sbOverlay');
+
+  function toggleSb(open){
+    sb.classList.toggle('open',open);
+    sbOv.classList.toggle('show',open);
+    sbBtn.innerHTML=open?'<i class="fas fa-xmark"></i>':'<i class="fas fa-bars"></i>';
+  }
+  sbBtn.addEventListener('click',()=>toggleSb(!sb.classList.contains('open')));
+  sbOv.addEventListener('click',()=>toggleSb(false));
+
+  /* close on link click */
+  document.querySelectorAll('.sb-nav a').forEach(a=>{
+    a.addEventListener('click',()=>{
+      if(window.innerWidth<=980) toggleSb(false);
     });
+  });
 
-    document.querySelectorAll('#mainNav a').forEach(a => {
-      a.addEventListener('click', () => {
-        nav.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-        btn.innerHTML = '<i class="fas fa-bars"></i>';
-      });
+  /* active link */
+  function updateActive(){
+    const sections=document.querySelectorAll('section[id]');
+    const sy=window.scrollY+120;
+    sections.forEach(s=>{
+      const t=s.offsetTop,h=s.offsetHeight,id=s.id;
+      const link=document.querySelector(`.sb-nav a[href="#${id}"]`);
+      if(!link) return;
+      link.classList.toggle('active',sy>=t&&sy<t+h);
     });
+  }
+  window.addEventListener('scroll',updateActive,{passive:true});
+  updateActive();
 
-    document.addEventListener('click', e => {
-      if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) {
-        nav.classList.remove('open');
-        btn.setAttribute('aria-expanded', 'false');
-        btn.innerHTML = '<i class="fas fa-bars"></i>';
-      }
-    });
-
-    /* ── ACTIVE LINK ── */
-    function updateActive() {
-      const sections = document.querySelectorAll('section[id]');
-      const sy = window.scrollY + 90;
-      sections.forEach(s => {
-        const top = s.offsetTop, h = s.offsetHeight, id = s.id;
-        const link = document.querySelector(`nav a[href="#${id}"]`);
-        if (!link) return;
-        link.classList.toggle('active', sy >= top && sy < top + h);
-      });
-    }
-    window.addEventListener('scroll', updateActive, { passive: true });
-    updateActive();
-
-    /* ── SMOOTH SCROLL ── */
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener('click', e => {
-        const t = document.querySelector(a.getAttribute('href'));
-        if (!t) return;
-        e.preventDefault();
-        t.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      });
-    });
-
-    /* ── REVEAL ── */
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-    }, { threshold: .1, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    /* ── PHONE MASK ── */
-    const tel = document.getElementById('telefone');
-    tel?.addEventListener('input', function() {
-      let v = this.value.replace(/\D/g, '').slice(0, 11);
-      if (v.length > 10) v = v.replace(/^(\d{2})(\d{5})(\d{4})/, '($1) $2-$3');
-      else if (v.length > 6) v = v.replace(/^(\d{2})(\d{4})(\d*)/, '($1) $2-$3');
-      else if (v.length > 2) v = v.replace(/^(\d{2})(\d*)/, '($1) $2');
-      else v = v.replace(/^(\d*)/, '($1');
-      this.value = v;
-    });
-
-    /* ── TEMPLATES ── */
-    window.preencherServico = function(servico) {
-      const sel = document.getElementById('servico');
-      const msg = document.getElementById('mensagem');
-      if (!sel || !msg) return;
-      sel.value = servico;
-
-      const tpl = {
-        'Criação de Sites': `**Criação de Site**\n- Tipo (institucional / loja / landing page):\n- Tenho domínio/hospedagem?\n- Referências de sites que gostou:\n- Prazo esperado:\n- Orçamento aproximado:`,
-        'Banco de Dados': `**Banco de Dados**\n- Sistema ou projeto relacionado:\n- Banco atual (MySQL, PostgreSQL etc.):\n- O que precisa (criação / manutenção / migração):\n- Volume de dados (estimativa):\n- Precisa de integração com algum sistema?`,
-        'Suporte Técnico': `**Suporte Técnico**\n- Qual problema está acontecendo?\n- O equipamento liga?\n- Sistema operacional:\n- Mensagem de erro (se houver):`,
-        'Consultoria de TI': `**Consultoria**\n- Para empresa ou uso pessoal?\n- Qual sua principal necessidade?\n- Quantidade de usuários/máquinas:\n- Situação atual:`,
-        'Backup de Dados': `**Backup de Dados**\n- O que precisa proteger?\n- Uso pessoal ou empresarial?\n- Volume aproximado de dados:\n- Possui backup anterior?`,
-        'Upgrade e Montagem': `**Upgrade / Montagem**\n- Uso do computador (games / trabalho / estudo):\n- Peças que já possui:\n- Orçamento pretendido:\n- Precisa de ajuda para escolher peças?`,
-        'Impressoras': `**Impressoras**\n- Marca e modelo:\n- Problema apresentado:\n- Tipo de conexão (USB / Wi-Fi / Rede):\n- Mensagem de erro:`
-      };
-
-      msg.value = tpl[servico] || '';
-      document.getElementById('solicitar').scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setTimeout(() => msg.focus(), 500);
-    };
-
-    /* ── TOAST ── */
-    function toast(msg, err = false) {
-      const t = document.createElement('div');
-      t.className = 'toast' + (err ? ' err' : '');
-      t.setAttribute('role', 'alert');
-      t.innerHTML = `<i class="fas ${err ? 'fa-exclamation-circle' : 'fa-check-circle'}"></i><span>${msg}</span>`;
-      document.body.appendChild(t);
-      setTimeout(() => { t.classList.add('out'); setTimeout(() => t.remove(), 300); }, 3000);
-    }
-
-    /* ── FORM ── */
-    const form = document.getElementById('atendimentoForm');
-    const sub = document.getElementById('submitBtn');
-
-    form?.addEventListener('submit', e => {
+  /* smooth scroll */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(!t) return;
       e.preventDefault();
-
-      const nome = document.getElementById('nome').value.trim();
-      const fone = document.getElementById('telefone').value.trim();
-      const mail = document.getElementById('email').value.trim();
-      const serv = document.getElementById('servico').value;
-
-      if (!nome) { toast('Preencha seu nome.', true); document.getElementById('nome').focus(); return; }
-      if (!fone) { toast('Preencha seu WhatsApp.', true); document.getElementById('telefone').focus(); return; }
-      if (!mail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)) { toast('E-mail inválido.', true); document.getElementById('email').focus(); return; }
-      if (!serv) { toast('Selecione o serviço.', true); document.getElementById('servico').focus(); return; }
-
-      const tipo = document.getElementById('tipo_cliente');
-      const urg = document.getElementById('urgencia');
-      const msg = document.getElementById('mensagem').value.trim();
-
-      const txt = `*Nova Solicitação — Breno Nascimento TI*\n\n*Nome:* ${nome}\n*WhatsApp:* ${fone}\n*E-mail:* ${mail}\n*Tipo:* ${tipo.options[tipo.selectedIndex].text}\n*Serviço:* ${serv}\n*Urgência:* ${urg.options[urg.selectedIndex].text}\n\n*Mensagem:*\n${msg || 'Não informada'}\n\n_Enviado em: ${new Date().toLocaleString('pt-BR')}_`;
-
-      sub.classList.add('loading'); sub.disabled = true;
-
-      setTimeout(() => {
-        window.open(`https://wa.me/5584994291197?text=${encodeURIComponent(txt)}`, '_blank', 'noopener,noreferrer');
-        toast('Redirecionando para WhatsApp...');
-        sub.classList.remove('loading'); sub.disabled = false;
-      }, 500);
+      t.scrollIntoView({behavior:'smooth',block:'start'});
     });
+  });
 
-    /* ── OFFLINE/ONLINE ── */
-    window.addEventListener('offline', () => toast('Sem conexão com internet.', true));
-    window.addEventListener('online', () => toast('Conexão restabelecida!'));
+  /* reveal */
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.1,rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  })();
-  </script>
+  /* phone mask */
+  const tel=document.getElementById('telefone');
+  tel?.addEventListener('input',function(){
+    let v=this.value.replace(/\D/g,'').slice(0,11);
+    if(v.length>10) v=v.replace(/^(\d{2})(\d{5})(\d{4})/,'($1) $2-$3');
+    else if(v.length>6) v=v.replace(/^(\d{2})(\d{4})(\d*)/,'($1) $2-$3');
+    else if(v.length>2) v=v.replace(/^(\d{2})(\d*)/,'($1) $2');
+    else v=v.replace(/^(\d*)/,'($1');
+    this.value=v;
+  });
+
+  /* fill service */
+  window.fillService=function(s){
+    const sel=document.getElementById('servico');
+    const msg=document.getElementById('mensagem');
+    if(!sel) return;
+    sel.value=s;
+    const tpl={
+      'Criação de Sites':'Tipo de site:\nDomínio/hospedagem:\nReferências:\nPrazo:\nOrçamento:',
+      'Banco de Dados':'Banco atual:\nNecessidade:\nVolume de dados:\nIntegração:',
+      'Suporte Técnico':'Problema:\nSistema operacional:\nMensagem de erro:',
+      'Consultoria de TI':'Empresa ou pessoal:\nNecessidade:\nUsuários/máquinas:',
+      'Backup de Dados':'O que proteger:\nVolume:\nLocal ou nuvem:',
+      'Upgrade e Montagem':'Uso:\nPeças que possui:\nOrçamento:',
+      'Impressoras':'Marca/modelo:\nProblema:\nConexão:'
+    };
+    if(msg) msg.value=tpl[s]||'';
+    document.getElementById('contato').scrollIntoView({behavior:'smooth'});
+    setTimeout(()=>msg?.focus(),500);
+  };
+
+  /* toast */
+  function toast(m,err=false){
+    const t=document.createElement('div');
+    t.className='toast'+(err?' err':'');
+    t.innerHTML=`<i class="fas ${err?'fa-circle-exclamation':'fa-circle-check'}"></i><span>${m}</span>`;
+    document.body.appendChild(t);
+    setTimeout(()=>{t.classList.add('out');setTimeout(()=>t.remove(),300);},3000);
+  }
+
+  /* form */
+  document.getElementById('contactForm')?.addEventListener('submit',e=>{
+    e.preventDefault();
+    const nome=document.getElementById('nome').value.trim();
+    const fone=document.getElementById('telefone').value.trim();
+    const mail=document.getElementById('email').value.trim();
+    const serv=document.getElementById('servico').value;
+
+    if(!nome){toast('Preencha seu nome.',true);return;}
+    if(!fone){toast('Preencha seu WhatsApp.',true);return;}
+    if(!mail||!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){toast('E-mail inválido.',true);return;}
+    if(!serv){toast('Selecione o serviço.',true);return;}
+
+    const tipo=document.getElementById('tipo');
+    const urg=document.getElementById('urgencia');
+    const msg=document.getElementById('mensagem').value.trim();
+
+    const txt=`*Nova Solicitação*\n\n*Nome:* ${nome}\n*WhatsApp:* ${fone}\n*E-mail:* ${mail}\n*Tipo:* ${tipo.options[tipo.selectedIndex].text}\n*Serviço:* ${serv}\n*Urgência:* ${urg.options[urg.selectedIndex].text}\n\n*Mensagem:*\n${msg||'Não informada'}`;
+
+    const btn=document.getElementById('submitBtn');
+    btn.classList.add('loading');btn.disabled=true;
+
+    setTimeout(()=>{
+      window.open(`https://wa.me/5584994291197?text=${encodeURIComponent(txt)}`,'_blank','noopener');
+      toast('Redirecionando...');
+      btn.classList.remove('loading');btn.disabled=false;
+    },500);
+  });
+})();
+</script>
 </body>
 </html>
